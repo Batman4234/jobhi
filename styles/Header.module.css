@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+}
+.select {
+  margin: 25px;
+  margin-top: 30px;
+  margin-left: 70px;
+}
+.nav {
+  display: flex;
+}
+.logo {
+  margin-left: 35vw;
+}
+.icons {
+  display: flex;
+  gap: 20px;
+  margin: 40px;
+  margin-left: 500px;
+}
+.button {
+}
