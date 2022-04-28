@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { styled, keyframes } from '@stitches/react';
 import { blackA } from '@radix-ui/colors';
-import Autocomplete from './Autocomplete';
 import {
   RowSpacingIcon,
   Cross2Icon,
@@ -20,12 +19,19 @@ export const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
 
 // Your app...
 
-const Flex = styled('div', { display: 'flex' });
+const Flex = styled('div', { display: 'flex'});
 const IconButton = styled('button', {
-  display: 'inline',
+  display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 });
+const SearchPage = styled('div', {
+  width: '100%',
+  height: '500px',
+  backgroundColor: 'Black',
+  position: 'absolute',
+  zIndex: 20
+})
 const open = keyframes({
     from: { height: 0 },
     to: { height: 'var(--radix-collapsible-content-height)' },
@@ -44,20 +50,23 @@ export const CollapsibleDemo = () => {
   const [open, setOpen] = useState(false);
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
+
       <Flex css={{alignItems: 'center'}}>
-        <CollapsibleContent>
-          <Autocomplete />
-        </CollapsibleContent>
+        
         <CollapsibleTrigger asChild>
           <IconButton>
             {open ? (
-              <Cross2Icon height={24} width={24} style={{zIndex: 20}} />
+              <Cross2Icon height={24} width={24} />
             ) : (
               <MagnifyingGlassIcon height={24} width={24} />
             )}
           </IconButton>
         </CollapsibleTrigger>
-      </Flex>
+      </Flex>      <CollapsibleContent>
+      <SearchPage>
+
+      </SearchPage>
+        </CollapsibleContent>
     </Collapsible>
   );
 };
