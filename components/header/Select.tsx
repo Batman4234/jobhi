@@ -18,6 +18,12 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
   height: 35,
   gap: 5,
   backgroundColor: 'white',
+  '@media screen and (max-width:600px)': {
+      height: 100,
+      width: 120,
+      marginTop: 16,
+      fontSize: 30
+  },
 });
 
 const StyledContent = styled(SelectPrimitive.Content, {
@@ -26,6 +32,11 @@ const StyledContent = styled(SelectPrimitive.Content, {
   borderRadius: '5px',
   boxShadow:
     '0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
+    '@media screen and (max-width:600px)': {
+      height: 350,
+      width: 250,
+      borderRadius: 16
+  }
 });
 
 const StyledViewport = styled(SelectPrimitive.Viewport, {
@@ -53,11 +64,17 @@ const StyledItem = styled(SelectPrimitive.Item, {
     backgroundColor: gray.gray12,
     color: 'white',
   },
+  '@media screen and (max-width:600px)': {
+    height: 100,
+    width: 180,
+    fontSize: 50,
+    borderRadius: 5,
+},
 });
 
 const StyledLabel = styled(SelectPrimitive.Label, {
-  padding: '0 25px',
-  fontSize: 12,
+  padding: '10px 25px 0 25px',
+  fontSize: 15,
   lineHeight: '25px',
 });
 
@@ -106,7 +123,8 @@ export const SelectScrollUpButton = StyledScrollUpButton;
 export const SelectScrollDownButton = StyledScrollDownButton;
 
 // Your app...
-const Box = styled('div', {});
+const Box = styled('div', {
+});
 
 export const SelectDemo = () => (
   <Box>

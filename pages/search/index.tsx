@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../card/Card'
+import Card from '../../components/card/Card'
 import { useState, useCallback } from 'react';
 import { styled, keyframes } from '@stitches/react';
 import { olive, gray } from '@radix-ui/colors';
@@ -48,21 +48,12 @@ const OthersButton = styled('button', {
 const CategoryDiv = styled('div', {
   display: "flex"
 })
-const Flex = styled('div', { display: 'flex', marginLeft: 2, '@media screen and (max-width:600px)': {
-  display: 'none',
-}});
-const IconButton = styled('button', {
-  display: 'flex',
-  alignItems: 'center',
-  zIndex: 30,
-  justifyContent: 'center',
-});
 const SearchPage = styled('div', {
   width: '100%',
   height: '100%',
   position: 'absolute',
   backgroundColor: olive.olive1,
-  zIndex: 20,
+  zIndex: 40,
   top: 0,
   right: 0,
   left: 0,
@@ -139,19 +130,7 @@ setDebounceValue(value)
   []
 );
   return (
-    <Collapsible open={open} onOpenChange={setOpen}>
-      <Flex css={{ alignItems: 'center' }}>
-        <CollapsibleTrigger asChild>
-          <IconButton>
-            {open ? (
-              <Cross2Icon height={25} width={25} strokeWidth={1} />
-            ) : (
-              <SearchIcon height={25} width={25} strokeWidth={1}/>
-            )}
-          </IconButton>
-        </CollapsibleTrigger>
-      </Flex>
-      <CollapsibleContent>
+  
         <SearchPage>
           <div>
             <InputDiv>
@@ -198,8 +177,6 @@ setDebounceValue(value)
             </div>
           </div>
         </SearchPage>
-      </CollapsibleContent>
-    </Collapsible>
   );
 };
 

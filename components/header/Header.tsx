@@ -1,32 +1,48 @@
 import React from 'react';
-import { PersonIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { UserIcon } from '@heroicons/react/outline';
+import { ShoppingBagIcon } from '@heroicons/react/outline';
 import styles from '../../styles/Header.module.css';
 import Select from './Select';
 import Search from './Search';
 import Image from 'next/image';
 import Logo from '../../public/logo.svg';
+import { styled } from '@stitches/react';
+const BottomBar = styled('div', {
+  display: 'flex',
+  height: '100%',
+  position: 'absolute',
+})
+const BottomNav = styled('nav', {
+  display: 'flex',
+
+})
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
+    <>
+    <header className={`${styles.header}`}>
+      <nav className={`${styles.nav} `}>
         <div aria-label='currency' className={styles.select}>
           <Select />
         </div>
         <div aria-label='logo' className={styles.logo}>
-          <Image width={100} height={100} src={Logo} alt='Logo For JOBHI' />
+          <Image src={Logo} layout="responsive" height={100} width={100} alt='Logo For JOBHI' />
         </div>
         <div className={styles.icons}>
-         <div>
             <Search/>
-          </div>
-          <div>
+          <div className='flex items-center mr-1'>
             <button className={styles.button}>
-              <PersonIcon height={20} width={20} />
+              <UserIcon height={28} width={28} strokeWidth={1} className={styles.iconButton} />
             </button>
+            
           </div>
+          <div className="flex items-center lg:ml-3">
+            <button className={styles.button}>
+              <ShoppingBagIcon height={28} width={28} strokeWidth={1} className={styles.iconButton} />
+            </button></div>
         </div>
       </nav>
     </header>
+    </>
   );
 };
 
