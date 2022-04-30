@@ -72,7 +72,7 @@ const IconButton = styled('button', {
 });
 const SearchPage = styled('div', {
   width: '100%',
-  height: '100%',
+  height: '100vh',
   position: 'absolute',
   backgroundColor: olive.olive1,
   zIndex: 20,
@@ -80,6 +80,7 @@ const SearchPage = styled('div', {
   right: 0,
   left: 0,
   bottom: 0,
+  overflow: 'scroll'
 });
 const InputDiv = styled('div', {
   paddingTop: '5px',

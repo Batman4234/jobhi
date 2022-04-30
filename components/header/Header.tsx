@@ -25,7 +25,7 @@ const Header = () => {
           <Select />
         </div>
         <div aria-label='logo' className={styles.logo}>
-          <Image src={Logo} layout="responsive" height={100} width={100} alt='Logo For JOBHI' />
+          <Image src={Logo} height={300} width={300} alt='Logo For JOBHI' />
         </div>
         <div className={styles.icons}>
             <Search/>

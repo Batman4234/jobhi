@@ -7,7 +7,7 @@ import Card from 'components/card/Card';
 const Home: NextPage = () => {
   return (
     <>
-  <div className='mt-64'>
+  <div className='mt-40'>
     <Headline>Trending</Headline>
     <div className="flex">
         <Card url="https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" price="1$" item="Moscow" author="Viladimir Puhtin"/>
