@@ -2,12 +2,15 @@ import React, { FC } from 'react';
 import Image from 'next/image';
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
-const ImageDiv = styled('div', {
-  width: '230px',
-  height: '50px',
-  position: 'relative',
-  marginLeft: '100px',
-});
+export interface Props {
+  height?: number | string;
+  width?: number | string;
+  author: string;
+  item: string;
+  price: string;
+  url: string;
+}
+
 const AuthorH4 = styled('h4', {
   fontFamily: 'Poppins',
   textTransform: 'uppercase',
@@ -15,6 +18,10 @@ const AuthorH4 = styled('h4', {
   fontSize: 16.3,
   marginTop: 4,
   marginLeft: 2,
+  zIndex: -10,
+    '@media screen and (max-width: 600px)': {
+    fontSize: 50
+  }
 });
 const ItemH4 = styled('h4', {
   fontFamily: 'Montserrat',
@@ -23,12 +30,29 @@ const ItemH4 = styled('h4', {
   marginLeft: 2,
   color: gray.gray11,
   maxWidth: 230,
+  zIndex: -10,
+  '@media screen and (max-width: 600px)': {
+    fontSize: 40
+  }
 });
 const PriceTag = styled('h4', {
   fontFamily: 'Poppins',
   // fontFamily: 'Montserrat'
+  zIndex: -10,
+    '@media screen and (max-width: 600px)': {
+    fontSize: 50
+  }
 });
-const ContentDiv = styled('div', {});
+const ContentDiv = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  width: 240,
+  height: 240,
+    '@media screen and (max-width: 600px)': {
+      width: 600,
+      height: 600
+  }
+});
 export interface ClassNames {
   div?: string;
   ImageDiv?: string;
@@ -38,26 +62,38 @@ export interface ClassNames {
 export interface Props {
   classNames?: ClassNames;
 }
-const Card: FC<Props> = ({classNames}) => {
+const Card: FC<Props> = ({ classNames, height, width, author, item, price, url }) => {
+  const ImageDiv = styled('div', {
+    position: 'relative',
+    marginLeft: '100px',
+    height: height ? height : 300,
+    width: width ? width : 300,
+    '@media screen and (max-width: 600px)': {
+      height: 500,
+      width: 500
+    }
+  });
   return (
     <div className={`flex my-4 ${classNames?.div}`}>
-      <ImageDiv className={classNames?.ImageDiv}>
+      <ImageDiv
+        className={classNames?.ImageDiv}
+      >
         <Image
           layout='responsive'
           height={19}
           width={12}
           quality={100}
           objectFit='cover'
-          className={classNames?.Image}
+          className={`${classNames?.Image} -z-10 rounded-lg`}
           src={
-            'https://img.perniaspopupshop.com/catalog/product/b/m/BMKC042234_1.jpg?impolicy=listingimagenew'
+            url
           }
           alt=''
         />
-        <ContentDiv className={classNames?.ContentDiv}>
-          <AuthorH4>Bhumika Sharma</AuthorH4>
-          <ItemH4>Captain America T-Shirt</ItemH4>
-          <PriceTag>100$</PriceTag>
+        <ContentDiv className={`${classNames?.ContentDiv}`}>
+          <AuthorH4>{author}</AuthorH4>
+          <ItemH4>{item}</ItemH4>
+          <PriceTag>{price}</PriceTag>
         </ContentDiv>
       </ImageDiv>
     </div>

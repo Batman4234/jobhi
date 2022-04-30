@@ -1,8 +1,9 @@
 .header {
   display: flex;
-  position: sticky;
+  position: fixed;
   top: 0;
   background-color: white;
+  z-index: 40;
 }
 .select {
   margin: 25px;

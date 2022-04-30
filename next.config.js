@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["img.perniaspopupshop.com"]
+    domains: ["images.unsplash.com"]
   }
 }
 

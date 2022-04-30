@@ -1,9 +1,13 @@
 import React from 'react';
-import Card from '../card/Card'
+import Card from '../card/Card';
 import { useState, useCallback } from 'react';
 import { styled, keyframes } from '@stitches/react';
 import { olive, gray } from '@radix-ui/colors';
-import { Cross2Icon, MagnifyingGlassIcon, DoubleArrowLeftIcon } from '@radix-ui/react-icons';
+import {
+  Cross2Icon,
+  MagnifyingGlassIcon,
+  DoubleArrowLeftIcon,
+} from '@radix-ui/react-icons';
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import { SearchIcon } from '@heroicons/react/outline';
@@ -18,7 +22,12 @@ export const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
 // Your app...
 const StyledSeparator = styled(SeparatorPrimitive.Root, {
   backgroundColor: gray.gray11,
-  '&[data-orientation=horizontal]': { height: 1, marginLeft: '100px', width: '86%', marginTop: '30px' },
+  '&[data-orientation=horizontal]': {
+    height: 1,
+    marginLeft: '100px',
+    width: '86%',
+    marginTop: '30px',
+  },
   '&[data-orientation=vertical]': { height: '100%', width: 1 },
 });
 export const Separator = StyledSeparator;
@@ -29,8 +38,8 @@ const OthersH1 = styled('h1', {
   letterSpacing: '0.1px',
   fontSize: '13px',
   marginLeft: '100px',
-  marginTop: '30px'
-})
+  marginTop: '30px',
+});
 const OthersButton = styled('button', {
   display: 'flex',
   fontFamily: 'Montserrat',
@@ -42,15 +51,19 @@ const OthersButton = styled('button', {
   marginTop: '10px',
   '&:hover': {
     transition: 'color 200ms ease-in-out',
-    color: gray.gray11
-  }
-})
+    color: gray.gray11,
+  },
+});
 const CategoryDiv = styled('div', {
-  display: "flex"
-})
-const Flex = styled('div', { display: 'flex', marginLeft: 2, '@media screen and (max-width:600px)': {
-  display: 'none',
-}});
+  display: 'flex',
+});
+const Flex = styled('div', {
+  display: 'flex',
+  marginLeft: 2,
+  '@media screen and (max-width:600px)': {
+    display: 'none',
+  },
+});
 const IconButton = styled('button', {
   display: 'flex',
   alignItems: 'center',
@@ -113,31 +126,31 @@ const RecentH1 = styled('h1', {
   fontWeight: 500,
   letterSpacing: '0.1px',
   marginLeft: '100px',
-  marginTop: '40px'
-})
+  marginTop: '40px',
+});
 export const CollapsibleDemo = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
   const [debounceValue, setDebounceValue] = useState('');
   const IOButton = styled('button', {
-    marginRight: '8px'
-})
+    marginRight: '8px',
+  });
 
-const onChangeInput = (e: any) => {
-  const valuee = e.target?.value;
-  setValue(valuee);
-  handleSearch(valuee)
-}
-const onClickDelete = ()=> {
-  setValue('')
-} 
-const handleSearch = useCallback(
-  debounce((value) => {
-    console.log(value);
-setDebounceValue(value)
-  }, 1000),
-  []
-);
+  const onChangeInput = (e: any) => {
+    const valuee = e.target?.value;
+    setValue(valuee);
+    handleSearch(valuee);
+  };
+  const onClickDelete = () => {
+    setValue('');
+  };
+  const handleSearch = useCallback(
+    debounce((value) => {
+      console.log(value);
+      setDebounceValue(value);
+    }, 1000),
+    []
+  );
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
       <Flex css={{ alignItems: 'center' }}>
@@ -146,19 +159,23 @@ setDebounceValue(value)
             {open ? (
               <Cross2Icon height={25} width={25} strokeWidth={1} />
             ) : (
-              <SearchIcon height={25} width={25} strokeWidth={1}/>
+              <SearchIcon height={25} width={25} strokeWidth={1} />
             )}
           </IconButton>
         </CollapsibleTrigger>
       </Flex>
       <CollapsibleContent>
         <SearchPage>
-          <div>
+          <div className='bg-white'>
             <InputDiv>
               <IButton>
                 <MagnifyingGlassIcon />
               </IButton>
-              <InputText value={value} placeholder='Search Items' onChange={onChangeInput}/>
+              <InputText
+                value={value}
+                placeholder='Search Items'
+                onChange={onChangeInput}
+              />
               <IOButton onClick={onClickDelete}>
                 <DoubleArrowLeftIcon />
               </IOButton>
@@ -179,21 +196,21 @@ setDebounceValue(value)
                 <OthersButton>Designer 3</OthersButton>
                 <OthersButton>Designer 4</OthersButton>
                 <OthersButton>Designer 5</OthersButton>
-                 </div>
+              </div>
               <div>
                 <OthersH1>Popular Searches</OthersH1>
                 <OthersButton>Johni</OthersButton>
                 <OthersButton>Jooni</OthersButton>
                 <OthersButton>Jobhi</OthersButton>
-                 </div>
+              </div>
             </CategoryDiv>
             <Separator css={{ margin: '15px 0' }} />
-            <div>
-              <div>
+            <div className='bg-white'>
+              <div className='bg-white w-full'>
                 <RecentH1>Recently Viewed Products</RecentH1>
-              </div>
-              <div>
-                <Card />
+                <div className='w-full bg-white z-20 h-96 absolute mb-20 '>
+                  <Card url='https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3Jvb3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' price='1$' item='I am groot' author='groot' />
+                </div>
               </div>
             </div>
           </div>
