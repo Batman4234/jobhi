@@ -55,21 +55,25 @@
     margin-right: 20px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
   .nav {
     height: 12vh;
     width: 100%;
   }
-}
-@media screen and (min-width: 1500px) {
   .logo {
     margin-left: 28vw;
     left: 4%;
   }
 }
-@media screen and (min-width: 2000px) {
+/* @media screen and (min-width: 1500px) {
+  .logo {
+    margin-left: 28vw;
+    left: 4%;
+  }
+} */
+/* @media screen and (min-width: 2000px) {
   .logo {
     margin-left: 20vw;
     left: 5%;
   }
-}
+} */

@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Header />
-      <main className="h-[1300px] w-[1300px]">
+      <main className="h-[1300px] w-[1300px] lg:h-full lg:w-full">
         <Component {...pageProps} />
       </main>
     <BottomNavigation />
