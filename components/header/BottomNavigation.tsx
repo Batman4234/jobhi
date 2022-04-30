@@ -1,32 +1,32 @@
-import React from 'react'
-import { HomeIcon } from '@radix-ui/react-icons'
-import {styled} from '@stitches/react'
-const BigDiv = styled('div', {
-display: 'flex',
-boxShadow: '0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)'
-})
-const SmallerDiv = styled('div', {
-display: 'flex',
-})
-const HomeDiv = styled('div', {
-display: 'flex',
-})
-const IconH4 = styled('h4', {
+import React from 'react';
+import {
+  HomeIcon,
+  SearchIcon,
+  StarIcon,
+  UserIcon,
+} from '@heroicons/react/outline';
+import Link from 'next/link';
 
-})
 const BottomNavigation = () => {
-    return (
-        <>
-        <BigDiv>
-            <SmallerDiv>
-                <HomeDiv>
-                    <HomeIcon height={100} width={100} color="Blue"/>
-                        <IconH4>Home</IconH4>
-                </HomeDiv>
-            </SmallerDiv>
-        </BigDiv>
-</>
-  )
-}
+  return (
+    <div className='flex fixed bottom-0 w-full border border-gray-300 h-60 md:hidden'>
+        <Link href='/'>
+          <a className='mt-10 ml-32'>
+            <HomeIcon strokeWidth={1} height={100} width={100} />
+          </a>
+        </Link>
+      <Link href="/search">
+      <a className='mt-10 ml-52'> 
+        <SearchIcon strokeWidth={1} height={100} width={100} /></a>
+      </Link>
+      <div className='mt-10 ml-52'>
+        <StarIcon strokeWidth={1} height={100} width={100} />
+      </div>
+      <div className='mt-10 ml-52'>
+        <UserIcon strokeWidth={1} height={100} width={100} />
+      </div>
+    </div>
+  );
+};
 
-export default BottomNavigation
+export default BottomNavigation;

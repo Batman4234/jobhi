@@ -92,11 +92,6 @@ const close = keyframes({
   from: { height: 'var(--radix-collapsible-content-height)' },
   to: { height: 0 },
 });
-const CollapsibleContent = styled(CollapsiblePrimitive.Content, {
-  overflow: 'hidden',
-  '&[data-state="open"]': { animation: `${open} 50ms ease-out forwards` },
-  '&[data-state="closed"]': { animation: `${close} 50ms ease-out forwards` },
-});
 const RecentH1 = styled('h1', {
   fontFamily: 'Poppins',
   textTransform: 'uppercase',
@@ -106,7 +101,7 @@ const RecentH1 = styled('h1', {
   marginLeft: '100px',
   marginTop: '40px'
 })
-export const CollapsibleDemo = () => {
+const CollapsibleDemo = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
   const [debounceValue, setDebounceValue] = useState('');

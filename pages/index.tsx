@@ -1,14 +1,21 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import {olive} from '@radix-ui/colors'
+import type { NextPage } from 'next';
+import { olive } from '@radix-ui/colors';
+import { styled } from '@stitches/react';
+import Headline from 'components/card/Headline';
+import Card from 'components/card/Card';
 
 const Home: NextPage = () => {
-  console.log(olive.olive1)
   return (
-    <div></div>
-  )
-}
+    <>
+  <div>
+    <Headline>Trending</Headline>
+    <div className="flex">
+        <Card/>
+        <Card/>
+    </div>
+  </div>
+  </>
+  );
+};
 
-export default Home
+export default Home;
