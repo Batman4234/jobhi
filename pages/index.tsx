@@ -1,20 +1,37 @@
 import type { NextPage } from 'next';
-import { olive } from '@radix-ui/colors';
+import { gray } from '@radix-ui/colors';
 import { styled } from '@stitches/react';
 import Headline from 'components/card/Headline';
 import Card from 'components/card/Card';
+import { useState } from 'react';
+import CardRow from 'components/card/CardRow';
+
+const ViewH4 = styled('button', {
+  fontFamily: 'Poppins',
+  textTransform: 'uppercase',
+  fontSize: '20px',
+  fontWeight: 500,
+  letterSpacing: '0.1px',
+  marginRight: '4%',
+  marginTop: '46px',
+  '@media screen and (max-width: 600px)': {
+    fontSize: 70,
+  },
+  color: gray.gray11,
+});
 
 const Home: NextPage = () => {
+  const [trending, setTrending] = useState(false);
+  const OpenDiv = styled('div', {
+    display: `${!trending ? 'none' : 'flex'}`,
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  });
   return (
-    <>
-  <div className='mt-64 lg:mt-[150px] h-[600px] w-[100%]'>
-    <Headline>Trending</Headline>
-    <div className="flex flex-row w-[300px]">
-        <Card url="https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" price="1$" item="Moscow" author="Viladimir Puhtin"/>
-        <Card url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWFjfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" price="10$" item="Macih" author="Billih Gats"/>
+    <div className="">
+      <CardRow name="trending" />
     </div>
-  </div>
-  </>
   );
 };
 

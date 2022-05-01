@@ -54,15 +54,15 @@ const ContentDiv = styled('div', {
   }
 });
 export interface ClassNames {
-  div?: string;
   ImageDiv?: string;
   Image?: string;
   ContentDiv?: string;
 }
 export interface Props {
   classNames?: ClassNames;
+  className?: string;
 }
-const Card: FC<Props> = ({ classNames, height, width, author, item, price, url }) => {
+const Card: FC<Props> = ({ classNames, className, height, width, author, item, price, url }) => {
   const ImageDiv = styled('div', {
     position: 'relative',
     marginLeft: '100px',
@@ -74,7 +74,7 @@ const Card: FC<Props> = ({ classNames, height, width, author, item, price, url }
     }
   });
   return (
-    <div className={`flex my-4 ${classNames?.div}`}>
+    <div className={`flex my-4 md:mb-20 lg:mb-52  ${className}`}>
       <ImageDiv
         className={classNames?.ImageDiv}
       >
