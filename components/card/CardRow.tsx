@@ -25,6 +25,7 @@ const ViewH4 = styled('button', {
 });
 const CardRow:FC<Props> = ({name}) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
   const OpenDiv = styled('div', {
     display: `${!open ? 'none' : 'flex'}`,
     position: 'absolute',
@@ -43,10 +44,11 @@ const CardRow:FC<Props> = ({name}) => {
               <ViewH4
           id={`${name}`}
             onClick={() => {
+              router.push('#')
               setOpen(!open);
             }}
           >
-            {open ? 'View All' : 'View All'}
+            {open ? 'Close All' : 'View All'}
           </ViewH4>
         </div>
       </div>

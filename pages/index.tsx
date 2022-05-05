@@ -21,16 +21,10 @@ const ViewH4 = styled('button', {
 });
 
 const Home: NextPage = () => {
-  const [trending, setTrending] = useState(false);
-  const OpenDiv = styled('div', {
-    display: `${!trending ? 'none' : 'flex'}`,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-  });
   return (
     <div className="">
       <CardRow name="trending" />
+      <CardRow name="rending" />
     </div>
   );
 };
