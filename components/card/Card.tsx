@@ -17,6 +17,7 @@ const ContentDiv = styled('div', {
   flexDirection: 'column',
   zIndex: 30,
   backgroundColor: 'white',
+  height: '50vh',
     '@media screen and (max-width: 600px)': {
       width: 600,
       height: 600
