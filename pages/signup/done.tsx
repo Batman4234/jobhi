@@ -5,7 +5,7 @@ const Done = () => {
     const router = useRouter();
     setTimeout(()=> {
         router.push('/')
-    }, 5 * 1000)
+    }, 3 * 1000)
   return (
 <div className='grid min-h-screen place-items-center '>
       <div className='bg-sky w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat] flex justify-center items-center gap-5'>

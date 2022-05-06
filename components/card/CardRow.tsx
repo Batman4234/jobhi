@@ -6,8 +6,8 @@ import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
 
 export interface Props {
-    name?: string;
-    className?: string;
+  name?: string;
+  className?: string;
 }
 const ViewH4 = styled('button', {
   fontFamily: 'Poppins',
@@ -23,7 +23,7 @@ const ViewH4 = styled('button', {
   color: gray.gray11,
   zIndex: 30,
 });
-const CardRow:FC<Props> = ({name, className}) => {
+const CardRow: FC<Props> = ({ name, className }) => {
   const [open, setOpen] = useState(false);
   const OpenDiv = styled('div', {
     display: `${!open ? 'none' : 'flex'}`,
@@ -34,14 +34,15 @@ const CardRow:FC<Props> = ({name, className}) => {
   return (
     <div
       className={`${
-        open && 'lg:absolute mt-80 lg:mt-[60px] lg:w-full lg:top-0 lg:bottom-0 lg:left-0 lg:right-0 z-40'
-      } z-20 bg-white mt-80 lg:mt-[60px] ${className && className} `}
+        open &&
+        'lg:absolut lg:w-full lg:top-0 lg:bottom-0 lg:left-0 lg:right-0 z-40'
+      } z-20 bg-white ${className ? className : 'mt-80 lg:mt-[20px]'} `}
     >
       <div className={`lg:mt-0 bg-white w-full mb-4`}>
         <div className={`flex justify-between bg-white lg:mb-0 z-20`}>
           <Headline>{open ? name : name?.toUpperCase()}</Headline>
-              <ViewH4
-          id={`${name}`}
+          <ViewH4
+            id={`${name}`}
             onClick={() => {
               setOpen(!open);
             }}

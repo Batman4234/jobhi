@@ -17,7 +17,7 @@ const Index = () => {
             className='w-full text-gray-700 focus:outline-none bg-sky rounded-sm'
           /> 
           <div className='mr-1'>
-              <button className="flex" onClick={(e)=> {
+              <button type="button" className="flex" onClick={(e)=> {
                   e.preventDefault()
                   setOpen(!open)}}>
                       {open ? <EyeIcon height={24} width={24} strokeWidth={1}/>: <EyeOffIcon height={24} width={24} strokeWidth={1}/> }

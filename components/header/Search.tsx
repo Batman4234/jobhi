@@ -177,7 +177,7 @@ export const CollapsibleDemo = () => {
                 placeholder='Search Items'
                 onChange={onChangeInput}
               />
-              <IOButton onClick={onClickDelete}>
+              <IOButton type="reset" onClick={onClickDelete}>
                 <DoubleArrowLeftIcon />
               </IOButton>
             </InputDiv>
