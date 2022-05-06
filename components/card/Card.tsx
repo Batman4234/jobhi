@@ -89,7 +89,7 @@ const PriceTag = styled('h4', {
           width={12}
           quality={100}
           objectFit='cover'
-          className={`${classNames?.Image} z-0 ${styles.image} hover:scale-105 transition`}
+          className={`${classNames?.Image} z-0 ${styles.image} hover:scale-105 transition duration-[400ms]`}
           src={
             url
           }

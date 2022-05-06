@@ -1,18 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link'
+import Link from 'next/link';
 const Index = () => {
   return (
-    <div className='grid min-h-screen place-items-center '>
-      <div className='bg-sky w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat]'>
-        <span className='text-2xl font-[Montserrat] tracking-tight uppercase'>
+    <div className='flex items-center justify-center md:mt-32 mt-96'>
+      <div className='w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat]'>
+        <span className='lg:text-2xl text-[100px] font-[Montserrat] tracking-tight uppercase '>
           welcome back!
         </span>
         <form className='mt-6'>
           <div>
             <label
               htmlFor='email'
-              className='block text-xs font-medium text-gray-600 uppercase tracking-wide '
+              className='block lg:text-xs text-[30px] font-medium text-gray-600 uppercase tracking-wide '
             >
               E-mail
             </label>
@@ -21,13 +21,13 @@ const Index = () => {
               type='email'
               name='email'
               placeholder='support@jobhi.com'
-              className='block w-full p-3 mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
+              className='block w-full lg:p-3 mt-6 p-6 text-[40px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
             />
           </div>
           <div>
             <label
               htmlFor='password'
-              className='block mt-2 text-xs font-medium text-midnight uppercase'
+              className='block md:mt-2 text-[30px] mt-8 lg:text-xs font-medium text-midnight uppercase'
             >
               Password
             </label>
@@ -36,27 +36,27 @@ const Index = () => {
               type='password'
               name='password'
               placeholder='********'
-              className='block w-full p-3 mt-2 text-gray-700 focus:outline-none bg-sky border border-midnight rounded-sm'
+              className='flex items-center mb-10 w-full lg:p-3 p-6 mt-8 text-[40px] lg:text-sm lg:mt-2 text-gray-700 focus:outline-none bg-sky border border-midnight rounded-sm'
             />
           </div>
           <div>
             <button
               type='submit'
-              className='w-full py-3 mt-6 tracking-widest text-midnight bg-sky uppercase border border-midnight shadow-lg rounded-sm text-lg'
+              className='w-full py-8 lg:py-3 mt-6 pl-20 lg:pl-6 tracking-widest text-midnight bg-sky uppercase border border-midnight shadow-lg rounded-sm lg:text-lg text-[50px] text-center'
             >
               Login
             </button>
           </div>
           <div className='justify-between flex'>
-            <Link href="/signup">
-            <a>
-              <button className='flex mt-4 text-xs w-32 text-midnight cursor-pointer hover:text-gray-800 capitalize transition'>
-              Create An Account.
-            </button>
-            </a>
+            <Link href='/signup'>
+              <a>
+                <button className='flex text-[30px] mt-10 w-64 lg:mt-4 lg:text-xs lg:w-32 text-midnight cursor-pointer hover:text-gray-800 capitalize transition'>
+                  Create An Account.
+                </button>
+              </a>
             </Link>
-            
-            <button className='flex mt-4 text-xs w-28 text-gray-500 cursor-pointer hover:text-midnight capitalize transition'>
+
+            <button className='flex text-[30px] mt-10 w-58 lg:mt-4 lg:text-xs lg:w-28 text-gray-500 cursor-pointer hover:text-midnight capitalize transition'>
               Forgot password?
             </button>
           </div>

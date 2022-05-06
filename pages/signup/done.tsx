@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react';
 import { ThumbUpIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
 const Done = () => {
