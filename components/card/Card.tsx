@@ -9,45 +9,16 @@ export interface Props {
   item: string;
   price: string;
   url: string;
+  open?: boolean;
 }
 
-const AuthorH4 = styled('h4', {
-  fontFamily: 'Poppins',
-  textTransform: 'uppercase',
-  fontWeight: 500,
-  fontSize: 16.3,
-  marginTop: 4,
-  marginLeft: 2,
-  zIndex: -10,
-    '@media screen and (max-width: 600px)': {
-    fontSize: 50
-  }
-});
-const ItemH4 = styled('h4', {
-  fontFamily: 'Montserrat',
-  letterSpacing: '0.050px',
-  textTransform: 'capitalize',
-  marginLeft: 2,
-  color: gray.gray11,
-  maxWidth: 230,
-  zIndex: -10,
-  '@media screen and (max-width: 600px)': {
-    fontSize: 40
-  }
-});
-const PriceTag = styled('h4', {
-  fontFamily: 'Poppins',
-  // fontFamily: 'Montserrat'
-  zIndex: -10,
-    '@media screen and (max-width: 600px)': {
-    fontSize: 50
-  }
-});
+
 const ContentDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  width: 240,
-  height: 240,
+  height: 400,
+  zIndex: 30,
+  backgroundColor: 'white',
     '@media screen and (max-width: 600px)': {
       width: 600,
       height: 600
@@ -63,6 +34,39 @@ export interface Props {
   className?: string;
 }
 const Card: FC<Props> = ({ classNames, className, height, width, author, item, price, url }) => {
+  const AuthorH4 = styled('h4', {
+  fontFamily: 'Poppins',
+  textTransform: 'uppercase',
+  fontWeight: 500,
+  fontSize: 16.3,
+  marginTop: 4,
+  marginLeft: 2,
+  zIndex: 20,
+    '@media screen and (max-width: 600px)': {
+    fontSize: 50
+  }
+});
+const ItemH4 = styled('h4', {
+  fontFamily: 'Montserrat',
+  letterSpacing: '0.050px',
+  textTransform: 'capitalize',
+  marginLeft: 2,
+  color: gray.gray11,
+  maxWidth: 230,
+  zIndex: 20,
+  '@media screen and (max-width: 600px)': {
+    fontSize: 40
+  }
+});
+const PriceTag = styled('h4', {
+  fontFamily: 'Poppins',
+  // fontFamily: 'Montserrat'
+  zIndex: 20,
+    '@media screen and (max-width: 600px)': {
+    fontSize: 50
+  }
+
+});
   const ImageDiv = styled('div', {
     position: 'relative',
     marginLeft: '100px',
@@ -71,10 +75,11 @@ const Card: FC<Props> = ({ classNames, className, height, width, author, item, p
     '@media screen and (max-width: 600px)': {
       height: 500,
       width: 500
-    }
+    },
+    zIndex: 30
   });
   return (
-    <div className={`flex my-4 md:mb-20 lg:mb-52  ${className}`}>
+    <div className={`flex bg-white z-20 mb-32 lg:mb-56 ${className}`}>
       <ImageDiv
         className={classNames?.ImageDiv}
       >

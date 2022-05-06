@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import { gray } from '@radix-ui/colors';
 import { styled } from '@stitches/react';
 import Headline from 'components/card/Headline';
@@ -6,27 +7,30 @@ import Card from 'components/card/Card';
 import { useState } from 'react';
 import CardRow from 'components/card/CardRow';
 
-const ViewH4 = styled('button', {
-  fontFamily: 'Poppins',
-  textTransform: 'uppercase',
-  fontSize: '20px',
-  fontWeight: 500,
-  letterSpacing: '0.1px',
-  marginRight: '4%',
-  marginTop: '46px',
-  '@media screen and (max-width: 600px)': {
-    fontSize: 70,
+const StyledSeparator = styled(SeparatorPrimitive.Root, {
+  backgroundColor: gray.gray11,
+  '&[data-orientation=horizontal]': {
+    height: 1,
+    marginLeft: '100px',
+    width: '86%',
+    marginTop: '60px',
   },
-  color: gray.gray11,
+  zIndex: 30,
+  '&[data-orientation=vertical]': { height: '100%', width: 1 },
 });
+export const Separator = StyledSeparator;
 
 const Home: NextPage = () => {
   return (
-    <div className="">
-      <CardRow name="trending" />
-      <CardRow name="rending" />
+      <div className="grid gap-10">
+      <CardRow name="trending" className='mt-80 lg:mt-[80px]'/>
+      <Separator css={{ margin: '15px 0' }} />
+      <CardRow name="mens" />
+      <Separator css={{ margin: '15px 0' }} />
+      <CardRow name="womens" />
     </div>
   );
 };
 
 export default Home;
+

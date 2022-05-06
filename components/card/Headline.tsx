@@ -7,7 +7,7 @@ const RecentH1 = styled('h1', {
   fontWeight: 500,
   letterSpacing: '0.1px',
   marginLeft: '100px',
-  marginTop: '40px',
+  marginTop: '4%',
   '@media screen and (max-width: 600px)': {
     fontSize:80,
   }

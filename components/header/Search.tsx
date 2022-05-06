@@ -12,6 +12,7 @@ import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import { SearchIcon } from '@heroicons/react/outline';
 import debounce from 'lodash/debounce';
+import CardRow from 'components/card/CardRow';
 const StyledCollapsible = styled(CollapsiblePrimitive.Root, {
   width: 40,
 });
@@ -136,7 +137,6 @@ export const CollapsibleDemo = () => {
   const IOButton = styled('button', {
     marginRight: '8px',
   });
-
   const onChangeInput = (e: any) => {
     const valuee = e.target?.value;
     setValue(valuee);
@@ -206,14 +206,7 @@ export const CollapsibleDemo = () => {
               </div>
             </CategoryDiv>
             <Separator css={{ margin: '15px 0' }} />
-            <div className='bg-white'>
-              <div className='bg-white w-full'>
-                <RecentH1>Recently Viewed Products</RecentH1>
-                <div className='w-full bg-white z-20 h-96 absolute mb-20 '>
-                  <Card url='https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3Jvb3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' price='1$' item='I am groot' author='groot' />
-                </div>
-              </div>
-            </div>
+            <CardRow name="recently viewed"/>
           </div>
         </SearchPage>
       </CollapsibleContent>

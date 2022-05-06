@@ -9,13 +9,13 @@ import Link from 'next/link';
 
 const BottomNavigation = () => {
   return (
-    <div className='flex fixed bottom-0 w-full border border-gray-300 h-60 md:hidden bg-white'>
+    <div className='flex fixed bottom-0 w-full border border-gray-300 h-60 md:hidden bg-white z-50'>
         <Link href='/'>
           <a className='mt-10 ml-32'>
             <HomeIcon strokeWidth={1} height={100} width={100} />
           </a>
         </Link>
-      <Link href="/search">
+      <Link href="/search/mobile">
       <a className='mt-10 ml-52'> 
         <SearchIcon strokeWidth={1} height={100} width={100} /></a>
       </Link>
