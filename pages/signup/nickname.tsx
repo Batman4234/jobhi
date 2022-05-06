@@ -7,17 +7,17 @@ const Index = () => {
       <div className='bg-sky w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat]'>
           <div className='flex'>
         <span className='text-2xl font-[Montserrat] tracking-tight uppercase'>
-          What should be your address for orders?
+          Any Preferred Nicknames?
         </span>
-        <span className='flex ml-2 text-gray-400'>private</span> </div>
+        <span className='flex ml-2 text-gray-400'>Optional</span> </div>
         <form className='mt-6'>
           <input
             type='text'
-            placeholder='London, New York, Berlin, Kasaragod'
+            placeholder='kaka'
             className='block w-full p-3 mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
             required
           />
-          <Link href='/signup/nickname'>
+          <Link href='/signup/done'>
             <a>
               <button
                 type='submit'

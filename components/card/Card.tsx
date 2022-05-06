@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
+import styles from '../../styles/Card.module.css'
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
 export interface Props {
@@ -11,12 +12,9 @@ export interface Props {
   url: string;
   open?: boolean;
 }
-
-
 const ContentDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  height: '95vh',
   zIndex: 30,
   backgroundColor: 'white',
     '@media screen and (max-width: 600px)': {
@@ -76,7 +74,8 @@ const PriceTag = styled('h4', {
       height: 500,
       width: 500
     },
-    zIndex: 30
+    zIndex: 30,
+    borderRadius: '0.5rem'
   });
   return (
     <div className={`flex bg-white z-20 mb-32 lg:mb-56 ${className}`}>
@@ -89,7 +88,7 @@ const PriceTag = styled('h4', {
           width={12}
           quality={100}
           objectFit='cover'
-          className={`${classNames?.Image} -z-10 rounded-lg`}
+          className={`${classNames?.Image} z-0 ${styles.image} hover:scale-105 transition`}
           src={
             url
           }

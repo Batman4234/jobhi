@@ -24,10 +24,8 @@ const Home: NextPage = () => {
   return (
       <div className="grid gap-10">
       <CardRow name="trending" className='mt-80 lg:mt-[80px]'/>
-      <Separator css={{ margin: '15px 0' }} />
       <CardRow name="mens" />
-      <Separator css={{ margin: '15px 0' }} />
-      <CardRow name="womens" />
+      <CardRow name="mens" />
     </div>
   );
 };

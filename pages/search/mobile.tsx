@@ -172,8 +172,8 @@ const Home: NextPage = () => {
             <OthersButton>Jobhi</OthersButton>
           </div>
         </CategoryDiv>
-        <Separator css={{ margin: '15px 0' }} />
-          <CardRow name='recently viewed'/>
+        <Separator css={{ margin: '15px 0 0 0' }} />
+          <CardRow name='recently viewed' className='mb-0'/>
           </div>
           </div>
   );

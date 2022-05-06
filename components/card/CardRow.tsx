@@ -4,11 +4,20 @@ import { useState } from 'react';
 import Headline from './Headline';
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
+import * as SelectPrimitive from '@radix-ui/react-select';
 
 export interface Props {
   name?: string;
   className?: string;
 }
+
+const StyledSeparator = styled(SelectPrimitive.Separator, {
+  height: 1,
+  backgroundColor: 'Black',
+  margin: 5,
+  zIndex: 30,
+});
+export const Separator = StyledSeparator 
 const ViewH4 = styled('button', {
   fontFamily: 'Poppins',
   textTransform: 'uppercase',
@@ -28,14 +37,14 @@ const CardRow: FC<Props> = ({ name, className }) => {
   const OpenDiv = styled('div', {
     display: `${!open ? 'none' : 'flex'}`,
     position: 'absolute',
-    width: '100%',
-    height: '100%',
+    width: '100vw',
+    height: '100vh',
   });
   return (
     <div
       className={`${
         open &&
-        'lg:absolut lg:w-full lg:top-0 lg:bottom-0 lg:left-0 lg:right-0 z-40'
+        'lg:w-full lg:top-0 lg:bottom-0 lg:left-0 lg:right-0 z-40'
       } z-20 bg-white ${className ? className : 'mt-80 lg:mt-[20px]'} `}
     >
       <div className={`lg:mt-0 bg-white w-full mb-4`}>
@@ -110,10 +119,25 @@ const CardRow: FC<Props> = ({ name, className }) => {
                 author='Viladimir Puhtin'
               />
             </div>
+            <div>
+              <Card
+                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
+                price='1$'
+                item='Moscow'
+                author='Viladimir Puhtin'
+              />
+            </div>
+            <div>
+              <Card
+                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
+                price='1$'
+                item='Moscow'
+                author='Viladimir Puhtin'
+              />
+            </div>
           </div>
         </div>
       </OpenDiv>
-
       <div className={`${open ? '' : 'flex z-10'}`}>
         <div className={`md:gap-10 w-[300px] flex`}>
           <Card

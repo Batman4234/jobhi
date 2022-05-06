@@ -5,11 +5,20 @@
 *::-webkit-scrollbar-thumb {
   display: none;
 }
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
+
+  /* overflow-x: hidden; */
+}
+@media only screen and (min-width: 800px) {
+  html,
+  body {
+    /* overflow-x: hidden; */
+  }
 }
 ::selection {
   background-color: #79ffe1;
