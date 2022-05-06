@@ -1,4 +1,5 @@
 import React from 'react';
+import { LoginIcon } from '@heroicons/react/outline';
 import { UserIcon } from '@heroicons/react/outline';
 import { ShoppingBagIcon } from '@heroicons/react/outline';
 import styles from '../../styles/Header.module.css';
@@ -17,6 +18,7 @@ const BottomNav = styled('nav', {
   display: 'flex',
 });
 const Header = () => {
+  const login = false;
   return (
     <>
       <header className={`${styles.header}`}>
@@ -39,18 +41,33 @@ const Header = () => {
           <div className={styles.icons}>
             <Search />
             <div className='flex items-center mr-1'>
-              <Link href={'/profile'}>
-                <a className='flex'>
-                  <button className={styles.button}>
-                    <UserIcon
-                      height={28}
-                      width={28}
-                      strokeWidth={1}
-                      className={styles.iconButton}
-                    />
-                  </button>
-                </a>
-              </Link>
+              {login ? (
+                <Link href={'/profile'}>
+                  <a className='flex'>
+                    <button className={styles.button}>
+                      <UserIcon
+                        height={28}
+                        width={28}
+                        strokeWidth={1}
+                        className={styles.iconButton}
+                      />
+                    </button>
+                  </a>
+                </Link>
+              ) : (
+                <Link href={login ? '/profile': '/login'}>
+                  <a className='flex'>
+                    <button className={styles.button}>
+                      <LoginIcon
+                        height={28}
+                        width={28}
+                        strokeWidth={1}
+                        className={styles.iconButton}
+                      />
+                    </button>
+                  </a>
+                </Link>
+              )}
             </div>
             <div className='flex items-center lg:ml-3'>
               <button className={styles.button}>
