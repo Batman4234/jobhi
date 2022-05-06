@@ -40,7 +40,7 @@ const Header = () => {
             <Search />
             <div className='flex items-center mr-1'>
               <Link href={'/profile'}>
-                <a>
+                <a className='flex'>
                   <button className={styles.button}>
                     <UserIcon
                       height={28}

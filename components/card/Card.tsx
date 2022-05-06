@@ -16,7 +16,7 @@ export interface Props {
 const ContentDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  height: 400,
+  height: '95vh',
   zIndex: 30,
   backgroundColor: 'white',
     '@media screen and (max-width: 600px)': {
@@ -41,7 +41,7 @@ const Card: FC<Props> = ({ classNames, className, height, width, author, item, p
   fontSize: 16.3,
   marginTop: 4,
   marginLeft: 2,
-  zIndex: 20,
+  zIndex: 10,
     '@media screen and (max-width: 600px)': {
     fontSize: 50
   }
@@ -53,7 +53,7 @@ const ItemH4 = styled('h4', {
   marginLeft: 2,
   color: gray.gray11,
   maxWidth: 230,
-  zIndex: 20,
+  zIndex: 10,
   '@media screen and (max-width: 600px)': {
     fontSize: 40
   }
@@ -61,7 +61,7 @@ const ItemH4 = styled('h4', {
 const PriceTag = styled('h4', {
   fontFamily: 'Poppins',
   // fontFamily: 'Montserrat'
-  zIndex: 20,
+  zIndex: 10,
     '@media screen and (max-width: 600px)': {
     fontSize: 50
   }

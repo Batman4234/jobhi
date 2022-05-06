@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Headline from './Headline';
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
+
 export interface Props {
     name?: string;
     className?: string;
@@ -33,8 +34,8 @@ const CardRow:FC<Props> = ({name, className}) => {
   return (
     <div
       className={`${
-        open ? 'lg:absolute lg:mt-[80px] lg:w-full lg:h-full lg:top-0 lg:bottom-0 lg:left-0 lg:right-0 z-40' : 'mb-96 lg:mb-0'
-      } z-30 bg-white ${className && className} `}
+        open && 'lg:absolute mt-80 lg:mt-[60px] lg:w-full lg:top-0 lg:bottom-0 lg:left-0 lg:right-0 z-40'
+      } z-20 bg-white mt-80 lg:mt-[60px] ${className && className} `}
     >
       <div className={`lg:mt-0 bg-white w-full mb-4`}>
         <div className={`flex justify-between bg-white lg:mb-0 z-20`}>

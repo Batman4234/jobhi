@@ -4,6 +4,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        midnight: '#171717',
+        sky: '#fcfdfc'
+      }
+    },
   },
 };
