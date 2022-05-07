@@ -6,6 +6,9 @@ import { useState } from 'react';
 import { gray } from '@radix-ui/colors';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import Button from 'components/button/Button';
+import { ColorSwatchIcon } from '@heroicons/react/outline';
+import Truck from '@public/DeliveryTruck.svg';
+import Cloth from '@public/Cloth.svg';
 const StyledSeparator = styled(SeparatorPrimitive.Root, {
   backgroundColor: gray.gray11,
   '&[data-orientation=horizontal]': {
@@ -126,8 +129,19 @@ const SizeButton = styled('button', {
   transition: 'all 200ms cubic-bezier(.73,.08,.53,.81)',
 });
 const ItemH4 = styled('h4', {
-    marginTop: '20px',
-})
+  display: 'flex',
+  alignItems: 'center',
+  gap: 10,
+  fontFamily: 'Poppins',
+  letterSpacing: '0px',
+});
+const ItemDesc = styled('p', {
+  color: '#5A5555',
+  display: 'flex',
+  fontSize: 15,
+  fontFamily: 'Montserrat',
+  width: 540,
+});
 function getRelativePos(clientX: number, clientY: number, currentTarget: any) {
   const { left, top } = currentTarget.getBoundingClientRect();
   return {
@@ -157,12 +171,12 @@ const ViewCard = () => {
               Mens
             </ButtonBread>
             &gt;
-            <ButtonBread type='button' title='Rock'>
-              Rock
+            <ButtonBread type='button' title='Jimmy Kaka'>
+              Jimmy Kaka
             </ButtonBread>
             &gt;
-            <ButtonBread type='button' title='WitF'>
-              WitF
+            <ButtonBread type='button' title='Jojo Apten'>
+              Jojo Apten
             </ButtonBread>
           </BreadCrumb>
         </HeaderDiv>
@@ -179,7 +193,7 @@ const ViewCard = () => {
         </ThirdDiv>
         <ThirdDiv css={{ display: hov ? 'none' : 'flex' }}>
           <div className='ml-32'>
-            <AuthorH4>Peeki Kaka</AuthorH4>
+            <AuthorH4>Jimmy Kaka</AuthorH4>
             <ItemP>Jojo Apten</ItemP>
             <PriceH3>₹10,000</PriceH3>
             <p className='font-[Poppins] text-[#5A5555]'>
@@ -198,7 +212,7 @@ const ViewCard = () => {
               <div className='grid grid-cols-8'>
                 <div>
                   <Button
-                    size='57'
+                    width='57px'
                     on={size === 'XS' ? true : false}
                     onClick={() => {
                       setSize('XS');
@@ -213,18 +227,18 @@ const ViewCard = () => {
                     onClick={() => {
                       setSize('SM');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     SM
                   </Button>
                 </div>
                 <div>
                   <Button
-                    on={size === 'MD'? true : false}
+                    on={size === 'MD' ? true : false}
                     onClick={() => {
                       setSize('MD');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     MD
                   </Button>
@@ -235,18 +249,18 @@ const ViewCard = () => {
                     onClick={() => {
                       setSize('LG');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     LG
                   </Button>
-                  </div>
-                  <div>
-                  <Button 
-                  on={size === 'XL' ? true : false}
+                </div>
+                <div>
+                  <Button
+                    on={size === 'XL' ? true : false}
                     onClick={() => {
                       setSize('XL');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     XL
                   </Button>
@@ -257,7 +271,7 @@ const ViewCard = () => {
                     onClick={() => {
                       setSize('XXL');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     XXL
                   </Button>
@@ -268,7 +282,7 @@ const ViewCard = () => {
                     onClick={() => {
                       setSize('3XL');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     3XL
                   </Button>
@@ -279,7 +293,7 @@ const ViewCard = () => {
                     onClick={() => {
                       setSize('4XL');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     4XL
                   </Button>
@@ -290,7 +304,7 @@ const ViewCard = () => {
                     onClick={() => {
                       setSize('5XL');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     5Xl
                   </Button>
@@ -301,7 +315,7 @@ const ViewCard = () => {
                     onClick={() => {
                       setSize('6XL');
                     }}
-                    size='57'
+                    width='57px'
                   >
                     6Xl
                   </Button>
@@ -309,11 +323,42 @@ const ViewCard = () => {
               </div>
             </div>
             <div>
-                <div>
-                    <div>
-                        <ItemH4>Shipping Charges</ItemH4>
-                    </div>
+              <div>
+                <div className='flex mt-[39px] items-center gap-2'>
+                  <ItemH4>
+                    <Cloth height={28} width={28} /> Cloth :
+                  </ItemH4>
+                  <ItemDesc> Metallic Synthetic Fur Fibre </ItemDesc>
                 </div>
+                <div className='flex mt-[39px] items-center gap-2'>
+                  <ItemH4>
+                    <ColorSwatchIcon strokeWidth={1.2} height={28} width={28} /> Color :
+                  </ItemH4>
+                  <ItemDesc> Blue </ItemDesc>
+                </div>
+                <div className='flex mt-[19px] items-center gap-2'>
+                  <ItemH4>
+                    <Truck height={28} width={28} /> Standard Shipping :
+                  </ItemH4>
+                  <ItemDesc css={{ paddingTop: 17 }}>
+                    This product will be shipped to you after 5-6 weeks from the
+                    date of order placed.
+                  </ItemDesc>
+                </div>
+              </div>
+              <div className='flex gap-10 mb-10 mt-3'>
+                <Button
+                  on={true}
+                  width='210px'
+                  font='Montserrat'
+                  fontWeight={600}
+                >
+                  Buy Now
+                </Button>
+                <Button width={300} font='Montserrat' fontWeight={600}>
+                  Add To Cart
+                </Button>
+              </div>
             </div>
           </div>
         </ThirdDiv>
