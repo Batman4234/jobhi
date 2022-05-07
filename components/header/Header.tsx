@@ -34,6 +34,7 @@ const Header = () => {
                   height={300}
                   width={300}
                   alt='Logo For JOBHI'
+                  priority={true}
                 />
               </a>
             </Link>

@@ -38,7 +38,9 @@ const CardRow: FC<Props> = ({ name, className }) => {
     display: `${!open ? 'none' : 'flex'}`,
     position: 'absolute',
     width: '100vw',
-    height: '100vh',
+    backgroundColor: 'White',
+    height: 2000,
+    zIndex: `${open ? 30 : 20 }`
   });
   return (
     <div
@@ -62,7 +64,7 @@ const CardRow: FC<Props> = ({ name, className }) => {
       </div>
       <OpenDiv>
         <div>
-          <div className='grid grid-cols-2 gap-[600px] md:gap-10 md:grid-cols-3'>
+          <div className='grid grid-cols-2 gap-[600px] md:gap-10 md:grid-cols-3 h-full'>
             <div>
               <Card
                 url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Link from 'next/link'
 import Image from 'next/image';
 import styles from '../../styles/Card.module.css'
 import { styled } from '@stitches/react';
@@ -15,9 +16,9 @@ export interface Props {
 const ContentDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  zIndex: 30,
+  zIndex: 10,
+  height: '14vh',
   backgroundColor: 'white',
-  height: '50vh',
     '@media screen and (max-width: 600px)': {
       width: 600,
       height: 600
@@ -79,6 +80,10 @@ const PriceTag = styled('h4', {
     borderRadius: '0.5rem'
   });
   return (
+    <Link href="/items/mens/rock">
+      <a className='flex'>
+
+     
     <div className={`flex bg-white z-20 mb-32 lg:mb-56 ${className}`}>
       <ImageDiv
         className={classNames?.ImageDiv}
@@ -101,7 +106,8 @@ const PriceTag = styled('h4', {
           <PriceTag>{price}</PriceTag>
         </ContentDiv>
       </ImageDiv>
-    </div>
+    </div> </a>
+    </Link>
   );
 };
 
