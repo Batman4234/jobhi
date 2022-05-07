@@ -20,15 +20,15 @@
   align-items: center;
   background-color: white;
   justify-content: space-between;
+  width: 100%;
 }
 .logo {
   display: flex;
   position: relative;
-  margin-left: 35vw;
-  left: 10%;
   width: 100px;
   height: 100px;
   align-items: center;
+  left: 10%
 }
 .icons {
   display: flex;
@@ -55,14 +55,13 @@
     margin-right: 20px;
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 600px) {
   .nav {
     height: 12vh;
     width: 100%;
   }
   .logo {
-    margin-left: 28vw;
-    left: 4%;
+    left: 19%;
   }
 }
 /* @media screen and (min-width: 1500px) {

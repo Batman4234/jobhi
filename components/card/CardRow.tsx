@@ -4,20 +4,12 @@ import { useState } from 'react';
 import Headline from './Headline';
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
-import * as SelectPrimitive from '@radix-ui/react-select';
 
 export interface Props {
   name?: string;
   className?: string;
 }
 
-const StyledSeparator = styled(SelectPrimitive.Separator, {
-  height: 1,
-  backgroundColor: 'Black',
-  margin: 5,
-  zIndex: 30,
-});
-export const Separator = StyledSeparator 
 const ViewH4 = styled('button', {
   fontFamily: 'Poppins',
   textTransform: 'uppercase',

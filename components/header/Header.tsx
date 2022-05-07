@@ -29,13 +29,7 @@ const Header = () => {
           <div aria-label='logo' className={styles.logo}>
             <Link href='/'>
               <a>
-                <Image
-                  src={Logo}
-                  height={300}
-                  width={300}
-                  alt='Logo For JOBHI'
-                  priority={true}
-                />
+                <Logo height={230} width={230} className="md:h-[200px] md:w-[200px] lg:h-[100px] lg:w-[100px] " />
               </a>
             </Link>
           </div>
