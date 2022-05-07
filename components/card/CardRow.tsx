@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Headline from './Headline';
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
-
 export interface Props {
   name?: string;
   className?: string;
@@ -132,7 +131,7 @@ const CardRow: FC<Props> = ({ name, className }) => {
           </div>
         </div>
       </OpenDiv>
-      <div className={`${open ? '' : 'flex z-10'}`}>
+      <div className={`${open ? 'hidden lg:flex' : 'flex z-10'}`}>
         <div className={`md:gap-10 w-[300px] flex`}>
           <Card
             url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
