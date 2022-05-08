@@ -4,7 +4,7 @@ const Index = () => {
   return (
     <div className='grid min-h-screen place-items-center lg:mt-0 mt-[40rem]'>
       <div className='bg-white w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat]'>
-        <span className='text-left text-[56px] lg:text-2xl font-[Montserrat] tracking-tight uppercase '>
+        <span className='text-left text-[56px] lg:text-2xl font-[Montserrat] tracking-tight uppercase' style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}>
          Be Ready as always !
         </span>
         <Link href='/signup/name'>
@@ -12,6 +12,7 @@ const Index = () => {
             <button
               type='submit'
               className='w-full py-8 lg:py-3 mt-6 pl-20 lg:pl-6 tracking-widest text-midnight bg-sky uppercase border border-midnight shadow-lg rounded-sm lg:text-lg text-[50px] text-center'
+              style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}
             >
               Start
             </button>
@@ -19,7 +20,7 @@ const Index = () => {
         </Link>
         <Link href="/login">
             <a className='flex'>
-              <button type="button" className='flex justify-center text-[30px] w-96 text-left mt-8 lg:text-xs lg:w-40 text-midnight cursor-pointer hover:text-gray-800 capitalize transition'>
+              <button type="button" className='flex justify-center text-[30px] w-96 text-left mt-8 lg:text-xs lg:w-40 text-midnight cursor-pointer hover:text-gray-800 capitalize transition' style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}>
               Already Have An Account?
             </button>
             </a>

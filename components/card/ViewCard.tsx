@@ -6,7 +6,8 @@ import { useState } from 'react';
 import { gray } from '@radix-ui/colors';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import Button from 'components/button/Button';
-import { ColorSwatchIcon } from '@heroicons/react/outline';
+import { ColorSwatchIcon, HeartIcon } from '@heroicons/react/outline';
+import { HeartIcon as HeartFilledIcon } from '@heroicons/react/solid';
 import Truck from '@public/DeliveryTruck.svg';
 import Cloth from '@public/Cloth.svg';
 const StyledSeparator = styled(SeparatorPrimitive.Root, {
@@ -15,6 +16,9 @@ const StyledSeparator = styled(SeparatorPrimitive.Root, {
     height: 1,
     width: '50vw',
     marginTop: '30px',
+    '@media only screen and (max-width: 900px)': {
+      width: 900,
+    },
   },
   '&[data-orientation=vertical]': { height: '100%', width: 1 },
 });
@@ -27,9 +31,15 @@ const AllDiv = styled('div', {
   bottom: 0,
   width: '100%',
   height: '100%',
+  '@media only screen and (max-width:900px)': {
+    marginTop: '30vh',
+  },
 });
 const SecondDiv = styled('div', {
   marginTop: '9%',
+  '@media only screen and (max-width:600px)': {
+    marginTop: '1%`',
+  },
 });
 const HeaderDiv = styled('div', {
   position: 'absolute',
@@ -37,12 +47,18 @@ const HeaderDiv = styled('div', {
   right: 0,
   width: '100%',
   marginLeft: '3%',
+  display: 'flex',
+  '@media only screen and (max-width:600px)': {},
 });
 const BreadCrumb = styled('h5', {
   color: '#5A5555',
   fontFamily: 'Poppins',
   letterSpacing: '1.3px',
   padding: '0 15px',
+  '@media only screen and (max-width:600px)': {
+    fontSize: 30,
+    display: 'none',
+  },
 });
 const ButtonBread = styled('button', {
   '&:hover': {
@@ -60,6 +76,12 @@ const CardDiv = styled('div', {
   backgroundColor: 'white',
   border: '1px solid #171717',
   marginBottom: '20px',
+  '@media only screen and (max-width:600px)': {
+    marginBottom: 100,
+    height: '180px',
+    width: '140px',
+    paddingTop: 40,
+  },
 });
 const Images = styled(Image, {
   backgroundColor: '#d7e1ec',
@@ -68,26 +90,43 @@ const Images = styled(Image, {
   justifyContent: 'center',
   padding: '0',
   alignItems: 'center',
+  '@media only screen and (max-width:600px)': {},
 });
 const BiggerImageDiv = styled('div', {
   display: 'flex',
   marginLeft: '11%',
   marginTop: '3%',
   position: 'absolute',
+  '@media only screen and (max-width:600px)': {
+    marginTop: '5%',
+    marginLeft: '250px',
+  },
 });
 const ImagesDiv = styled('div', {
   cursor: 'crosshair',
   border: '1px solid #171717',
+  height: '480px',
+  width: '320px',
+  '@media only screen and (max-width:900px)': {
+    height: 1600,
+    width: 800,
+  },
 });
 const Imaage = styled(Image, {});
 const ImageButton = styled('button', {
   display: 'flex',
   marginLeft: '2%',
+  '@media only screen and (max-width:600px)': {
+    marginLeft: '50px',
+  },
 });
 const ThirdDiv = styled('div', {
   position: 'absolute',
   marginLeft: '36%',
   marginTop: '3%',
+  '@media only screen and (max-width:600px)': {
+    marginTop: '1800px',
+  },
 });
 const AuthorH4 = styled('button', {
   fontFamily: 'Poppins',
@@ -98,6 +137,9 @@ const AuthorH4 = styled('button', {
   '&:hover': {
     color: '#5A5555',
   },
+  '@media only screen and (max-width: 900px)': {
+    fontSize: 100,
+  },
 });
 const ItemP = styled('h5', {
   fontFamily: 'Montserrat',
@@ -106,6 +148,9 @@ const ItemP = styled('h5', {
   color: '#5A5555',
   '&:hover': {
     color: '#171717',
+  },
+  '@media only screen and (max-width: 900px)': {
+    fontSize: 80,
   },
 });
 const PriceH3 = styled('h3', {
@@ -116,24 +161,37 @@ const PriceH3 = styled('h3', {
   '&:hover': {
     color: '#5A5555',
   },
+  '@media only screen and (max-width: 900px)': {
+    fontSize: 110,
+  },
 });
 const SizeH4 = styled('h4', {
   transition: 'all 200ms cubic-bezier(.73,.08,.53,.81)',
   fontFamily: 'Poppins',
   fontSize: 20,
+  '@media only screen and (max-width: 900px)': {
+    fontSize: 70,
+    width: 800,
+  },
 });
 const SizeButton = styled('button', {
   fontSize: 12,
   marginLeft: 14,
   fontFamily: 'Montserrat',
   transition: 'all 200ms cubic-bezier(.73,.08,.53,.81)',
+  '@media only screen and (max-width: 900px)': {
+    fontSize: 40,
+    marginLeft: 0,
+  },
 });
 const ItemH4 = styled('h4', {
   display: 'flex',
-  alignItems: 'center',
-  gap: 10,
+  gap: 20,
   fontFamily: 'Poppins',
   letterSpacing: '0px',
+  '@media only screen and (max-width: 600px)': {
+    fontSize: 70,
+  },
 });
 const ItemDesc = styled('p', {
   color: '#5A5555',
@@ -141,6 +199,13 @@ const ItemDesc = styled('p', {
   fontSize: 15,
   fontFamily: 'Montserrat',
   width: 540,
+  '@media only screen and (max-width: 900px)': {
+    fontSize: 50,
+    width: 900,
+  },
+});
+const LikeButton = styled('button', {
+  marginLeft: '65%',
 });
 function getRelativePos(clientX: number, clientY: number, currentTarget: any) {
   const { left, top } = currentTarget.getBoundingClientRect();
@@ -150,8 +215,8 @@ function getRelativePos(clientX: number, clientY: number, currentTarget: any) {
   };
 }
 const ViewCard = () => {
-  const [eX, setEX] = useState(0);
   const [eY, setEY] = useState(0);
+  const liked = true;
   const [url, setUrl] = useState(
     'https://img.perniaspopupshop.com/catalog/product/d/m/DMMC042202_1.jpg?impolicy=detailimageprod'
   );
@@ -160,6 +225,7 @@ const ViewCard = () => {
   const Imaages = styled(Image, {
     pointerEvents: 'none',
     objectPosition: `0 ${eY / 4.8}% `,
+    '@media only screen and (max-width:900px)': {},
   });
   const ImaagesDiv = styled('div', {});
   return (
@@ -179,8 +245,19 @@ const ViewCard = () => {
               Jojo Apten
             </ButtonBread>
           </BreadCrumb>
+          <div className={`flex lg:hidden ml-[1100px] mt-[3%]`}>
+            {liked ? (
+              <LikeButton>
+                <HeartFilledIcon height={100} width={100} strokeWidth={1} />
+              </LikeButton>
+            ) : (
+              <LikeButton>
+                <HeartIcon height={100} width={100} strokeWidth={1} />
+              </LikeButton>
+            )}
+          </div>
         </HeaderDiv>
-        <ThirdDiv css={{ display: hov ? 'flex' : 'none' }}>
+        <ThirdDiv className={`hidden lg:${hov ? 'flex' : 'hidden'}`}>
           <ImaagesDiv>
             <Imaages
               width={800}
@@ -191,12 +268,31 @@ const ViewCard = () => {
             />
           </ImaagesDiv>
         </ThirdDiv>
-        <ThirdDiv css={{ display: hov ? 'none' : 'flex' }}>
+        <ThirdDiv className={`flex lg:${hov ? 'hidden' : 'flex'}`}>
           <div className='ml-32'>
             <AuthorH4>Jimmy Kaka</AuthorH4>
+            {liked ? (
+              <LikeButton>
+                <HeartFilledIcon
+                  height={30}
+                  width={30}
+                  strokeWidth={1}
+                  className='hidden lg:flex'
+                />
+              </LikeButton>
+            ) : (
+              <LikeButton>
+                <HeartIcon
+                  height={30}
+                  width={30}
+                  strokeWidth={1}
+                  className='hidden lg:flex'
+                />
+              </LikeButton>
+            )}
             <ItemP>Jojo Apten</ItemP>
             <PriceH3>₹10,000</PriceH3>
-            <p className='font-[Poppins] text-[#5A5555]'>
+            <p className='font-[Poppins] text-[60px] lg:text-xs text-[#5A5555]'>
               including all the taxes
             </p>
             <Separator css={{ margin: '15px 0' }} />
@@ -209,7 +305,7 @@ const ViewCard = () => {
                   </a>
                 </Link>
               </div>
-              <div className='grid grid-cols-8'>
+              <div className='grid grid-cols-4 mt-10 gap-5 lg:grid-cols-8 '>
                 <div>
                   <Button
                     width='57px'
@@ -324,38 +420,41 @@ const ViewCard = () => {
             </div>
             <div>
               <div>
-                <div className='flex mt-[39px] items-center gap-2'>
+                <div className='flex lg:mt-[39px] mt-[100px] gap-10 lg:gap-2'>
                   <ItemH4>
-                    <Cloth height={28} width={28} /> Cloth :
+                    <Cloth className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />{' '}
+                    Cloth:
                   </ItemH4>
                   <ItemDesc> Metallic Synthetic Fur Fibre </ItemDesc>
                 </div>
-                <div className='flex mt-[39px] items-center gap-2'>
+                <div className='flex mt-[39px] gap-10 lg:gap-2'>
                   <ItemH4>
-                    <ColorSwatchIcon strokeWidth={1.2} height={28} width={28} /> Color :
+                    <ColorSwatchIcon className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />
+                    Color:
                   </ItemH4>
                   <ItemDesc> Blue </ItemDesc>
                 </div>
-                <div className='flex mt-[19px] items-center gap-2'>
-                  <ItemH4>
-                    <Truck height={28} width={28} /> Standard Shipping :
-                  </ItemH4>
-                  <ItemDesc css={{ paddingTop: 17 }}>
-                    This product will be shipped to you after 5-6 weeks from the
-                    date of order placed.
-                  </ItemDesc>
-                </div>
               </div>
-              <div className='flex gap-10 mb-10 mt-3'>
+              <div className='flex gap-10 mb-[400px] mt-10 lg:mb-10 lg:mt-3'>
                 <Button
                   on={true}
                   width='210px'
                   font='Montserrat'
                   fontWeight={600}
+                  mobileWidth={500}
+                  mobileHeight={180}
+                  mobileFontWeight={800}
                 >
                   Buy Now
                 </Button>
-                <Button width={300} font='Montserrat' fontWeight={600}>
+                <Button
+                  width={300}
+                  font='Montserrat'
+                  fontWeight={600}
+                  mobileWidth={550}
+                  mobileHeight={180}
+                  mobileFontWeight={800}
+                >
                   Add To Cart
                 </Button>
               </div>
@@ -375,9 +474,7 @@ const ViewCard = () => {
                 );
                 setEY(y);
               }}
-              width={320}
-              id='imagg'
-              height={480}
+              layout='fill'
               objectFit='cover'
               quality={100}
               priority={true}

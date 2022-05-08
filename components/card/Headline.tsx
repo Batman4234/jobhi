@@ -10,7 +10,9 @@ const RecentH1 = styled('h1', {
   marginTop: '4%',
   '@media screen and (max-width: 600px)': {
     fontSize:80,
-  }
+ },
+  transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
+
 })
 export interface Props {
 

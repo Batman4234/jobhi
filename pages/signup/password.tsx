@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <div className='grid min-h-screen place-items-center mt-[37rem] lg:mt-0'>
       <div className='bg-sky w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat]'>
-      <span className='lg:text-2xl text-[70px] font-[Montserrat] tracking-tight uppercase'>
+      <span className='lg:text-2xl text-[70px] font-[Montserrat] tracking-tight uppercase' style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}>
           Enter A Password
         </span>
         <form className='mt-6'>
@@ -16,11 +16,10 @@ const Index = () => {
             <input
               type={open ? 'text' : 'password'}
               placeholder='********'
-              
               onChange={(e) => {
                 setValue(e.target.value);
               }}
-              // className='w-full text-gray-700 bg-sky rounded-sm focus:outline-none lg:p-0 mt-6 lg:mt-0 p-6'
+              style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}
               className='w-full lg:p-0 mt-6 p-6 text-[50px] lg:text-base lg:mt-0 text-gray-700 bg-sky  focus:outline-none rounded-sm'
             />
             <div className='mr-1'>
@@ -43,6 +42,7 @@ const Index = () => {
           <button
             type='submit'
             className='w-full py-8 lg:py-3 mt-10 lg:mt-6 pl-20 lg:pl-6 tracking-widest text-midnight bg-sky uppercase border border-midnight shadow-lg rounded-sm lg:text-lg lg:pr-3 pr-10 text-[50px] text-center'
+            style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}
             onClick={(e) => {
               e.preventDefault();
               if (value.trim() !== '') return router.push('/signup/address');

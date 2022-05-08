@@ -22,6 +22,7 @@ const ViewH4 = styled('button', {
   },
   color: gray.gray11,
   zIndex: 30,
+  transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
 });
 const CardRow: FC<Props> = ({ name, className }) => {
   const [open, setOpen] = useState(false);
@@ -31,7 +32,8 @@ const CardRow: FC<Props> = ({ name, className }) => {
     width: '100vw',
     backgroundColor: 'White',
     height: 2000,
-    zIndex: `${open ? 30 : 20 }`
+    zIndex: `${open ? 30 : 20 }`,
+    transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
   return (
     <div
