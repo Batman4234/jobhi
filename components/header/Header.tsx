@@ -70,7 +70,7 @@ const Header = () => {
             </div>
             <div className='flex items-center lg:ml-3'>
               <Link href={'/cart'}>
-                <a>
+                <a className='flex'>
                   <button className={styles.button}>
                     <ShoppingBagIcon
                       height={28}
