@@ -123,10 +123,11 @@ const ImageButton = styled('button', {
 });
 const ThirdDiv = styled('div', {
   position: 'absolute',
-  // marginLeft: '36%',
+  marginLeft: '36%',
   marginTop: '3%',
   '@media only screen and (max-width:600px)': {
     marginTop: '1800px',
+    marginLeft: 0
   },
 });
 const AuthorH4 = styled('button', {
@@ -270,7 +271,7 @@ const ViewCard = () => {
           </ImaagesDiv>
         </ThirdDiv>
         <ThirdDiv className={`flex lg:${hov ? 'hidden' : 'flex'}`}>
-          <div className='ml-20'>
+          <div className='ml-0 md:ml-32 '>
             <AuthorH4>Jimmy Kaka</AuthorH4>
             {liked ? (
               <LikeButton>
@@ -423,7 +424,7 @@ const ViewCard = () => {
               <div>
                 <div className='flex lg:mt-[39px] mt-[100px] gap-10 lg:gap-2'>
                   <ItemH4>
-                    <Cloth className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />
+                    <Cloth className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />{' '}
                     Cloth:
                   </ItemH4>
                   <ItemDesc> Metallic Synthetic Fur Fibre </ItemDesc>
