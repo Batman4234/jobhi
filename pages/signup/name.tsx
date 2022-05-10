@@ -19,6 +19,8 @@ const Index = () => {
             onChange={(e) => {
               setValue(e.target.value);
             }}
+            value={value}
+
           />
           <button
             type='submit'

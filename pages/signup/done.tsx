@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import { ThumbUpIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
 const Done = () => {
-    // const router = useRouter();
-    // setTimeout(()=> {
-    //     router.push('/')
-    // }, 2 * 10000)
+    const router = useRouter();
+    setTimeout(()=> {
+        router.push('/')
+    }, 3 * 1000)
   return (
 <div className='grid min-h-screen place-items-center lg:mt-0 mt-[900px]'>
       <div className='bg-sky w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat] grid place-items-start'>

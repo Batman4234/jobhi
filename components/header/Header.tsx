@@ -29,7 +29,11 @@ const Header = () => {
           <div aria-label='logo' className={styles.logo}>
             <Link href='/'>
               <a>
-                <Logo height={230} width={230} className="md:h-[200px] md:w-[200px] lg:h-[100px] lg:w-[100px] " />
+                <Logo
+                  height={230}
+                  width={230}
+                  className='md:h-[200px] md:w-[200px] lg:h-[100px] lg:w-[100px] '
+                />
               </a>
             </Link>
           </div>
@@ -50,7 +54,7 @@ const Header = () => {
                   </a>
                 </Link>
               ) : (
-                <Link href={login ? '/profile': '/login'}>
+                <Link href={login ? '/profile' : '/login'}>
                   <a className='flex'>
                     <button className={styles.button}>
                       <LoginIcon
@@ -65,14 +69,18 @@ const Header = () => {
               )}
             </div>
             <div className='flex items-center lg:ml-3'>
-              <button className={styles.button}>
-                <ShoppingBagIcon
-                  height={28}
-                  width={28}
-                  strokeWidth={1}
-                  className={styles.iconButton}
-                />
-              </button>
+              <Link href={'/cart'}>
+                <a>
+                  <button className={styles.button}>
+                    <ShoppingBagIcon
+                      height={28}
+                      width={28}
+                      strokeWidth={1}
+                      className={styles.iconButton}
+                    />
+                  </button>
+                </a>
+              </Link>
             </div>
           </div>
         </nav>

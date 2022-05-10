@@ -22,9 +22,12 @@ const BottomNavigation = () => {
       <div className='mt-10 ml-52'>
         <StarIcon strokeWidth={1} height={100} width={100} />
       </div>
-      <div className='mt-10 ml-52'>
+      <Link href={"/profile"}>
+      <a className='mt-10 ml-52'>
         <UserIcon strokeWidth={1} height={100} width={100} />
-      </div>
+      </a>
+      </Link>
+
     </div>
   );
 };

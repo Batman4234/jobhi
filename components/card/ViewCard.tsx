@@ -31,6 +31,7 @@ const AllDiv = styled('div', {
   bottom: 0,
   width: '100%',
   height: '100%',
+  // overflowX: 'hidden',
   '@media only screen and (max-width:900px)': {
     marginTop: '30vh',
   },
@@ -122,7 +123,7 @@ const ImageButton = styled('button', {
 });
 const ThirdDiv = styled('div', {
   position: 'absolute',
-  marginLeft: '36%',
+  // marginLeft: '36%',
   marginTop: '3%',
   '@media only screen and (max-width:600px)': {
     marginTop: '1800px',
@@ -269,7 +270,7 @@ const ViewCard = () => {
           </ImaagesDiv>
         </ThirdDiv>
         <ThirdDiv className={`flex lg:${hov ? 'hidden' : 'flex'}`}>
-          <div className='ml-32'>
+          <div className='ml-20'>
             <AuthorH4>Jimmy Kaka</AuthorH4>
             {liked ? (
               <LikeButton>
@@ -305,7 +306,7 @@ const ViewCard = () => {
                   </a>
                 </Link>
               </div>
-              <div className='grid grid-cols-4 mt-10 gap-5 lg:grid-cols-8 '>
+              <div className='grid grid-cols-4 mt-10 lg:mt-0 gap-5 lg:grid-cols-8 '>
                 <div>
                   <Button
                     width='57px'
@@ -422,7 +423,7 @@ const ViewCard = () => {
               <div>
                 <div className='flex lg:mt-[39px] mt-[100px] gap-10 lg:gap-2'>
                   <ItemH4>
-                    <Cloth className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />{' '}
+                    <Cloth className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />
                     Cloth:
                   </ItemH4>
                   <ItemDesc> Metallic Synthetic Fur Fibre </ItemDesc>

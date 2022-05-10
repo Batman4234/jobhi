@@ -20,7 +20,7 @@ const Index = () => {
                 setValue(e.target.value);
               }}
               style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}
-              className='w-full lg:p-0 mt-6 p-6 text-[50px] lg:text-base lg:mt-0 text-gray-700 bg-sky  focus:outline-none rounded-sm'
+              className='w-full outline-none lg:p-0 mt-6 p-6 text-[50px] lg:text-base lg:mt-0 text-gray-700 bg-sky  focus:outline-none rounded-sm'
             />
             <div className='mr-1'>
               <button

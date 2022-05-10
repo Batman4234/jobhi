@@ -21,6 +21,7 @@ const Index = () => {
             onChange={(e) => {
               setValue(e.target.value);
             }}
+            value={value}
           />
               <button
                 type='submit'
@@ -28,7 +29,7 @@ const Index = () => {
                 className='w-full py-8 lg:py-3 mt-10 lg:mt-6 pl-20 lg:pl-6 tracking-widest text-midnight bg-sky uppercase border border-midnight shadow-lg rounded-sm lg:text-lg lg:pr-3 pr-10 text-[50px] text-center'
                 onClick={(e) => {
                   e.preventDefault();
-                  if (value.trim() !== '') return router.push('/signup/done');
+                  if (value.trim() !== '') return router.push('/signup/terms');
                 }}
               >
                 submit

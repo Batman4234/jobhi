@@ -115,7 +115,7 @@ const Card: FC<Props> = ({
               <PriceTag>{price}</PriceTag>
             </ContentDiv>
           </ImageDiv>
-        </div>{' '}
+        </div>
       </a>
     </Link>
   );
