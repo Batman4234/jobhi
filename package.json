@@ -22,6 +22,7 @@
     "@radix-ui/react-select": "^0.1.1",
     "@radix-ui/react-separator": "^0.1.4",
     "@stitches/react": "^1.2.8",
+    "axios": "^0.27.2",
     "framer-motion": "^6.3.2",
     "lodash": "^4.17.21",
     "next": "12.1.5",

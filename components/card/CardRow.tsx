@@ -27,6 +27,7 @@ const ViewH4 = styled('button', {
 });
 const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) => {
   const [open, setOpen] = useState(false);
+  const Child = Children.toArray(children);
   const OpenDiv = styled('div', {
     display: `${!open ? 'none' : 'flex'}`,
     position: 'absolute',
@@ -65,6 +66,15 @@ const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) =>
       </OpenDiv>
       <div className={`${open ? 'hidden lg:flex' : 'flex z-10'}`}>
         <div className={`md:gap-10 w-[300px] flex`}>
+          <div>
+            {Child[0]}
+          </div>
+          <div>
+            {Child[4]}
+          </div>
+          <div>
+            {Child[2]}
+          </div>
         </div>
       </div>
     </div>

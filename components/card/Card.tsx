@@ -101,6 +101,7 @@ const Card: FC<Props> = ({
               height={19}
               width={12}
               quality={100}
+              priority={true}
               objectFit='cover'
               className={`${classNames?.Image} z-0 ${styles.image} hover:scale-105`}
               style={{
