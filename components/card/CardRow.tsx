@@ -70,9 +70,9 @@ const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) =>
             {Child[0]}
           </div>
           <div>
-            {Child[4]}
+            {Child[1]}
           </div>
-          <div>
+          <div className='hidden lg:flex'>
             {Child[2]}
           </div>
         </div>
