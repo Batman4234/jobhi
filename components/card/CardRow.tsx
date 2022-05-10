@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
+import React, { Children, FC } from 'react';
 import Card from './Card';
 import { useState } from 'react';
 import Headline from './Headline';
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
+import { PropsWithChildren } from 'react';
 export interface Props {
   name?: string;
   className?: string;
@@ -24,7 +25,7 @@ const ViewH4 = styled('button', {
   zIndex: 30,
   transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
 });
-const CardRow: FC<Props> = ({ name, className }) => {
+const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) => {
   const [open, setOpen] = useState(false);
   const OpenDiv = styled('div', {
     display: `${!open ? 'none' : 'flex'}`,
@@ -58,102 +59,12 @@ const CardRow: FC<Props> = ({ name, className }) => {
       <OpenDiv>
         <div>
           <div className='grid grid-cols-2 gap-[600px] md:gap-10 md:grid-cols-3 h-full'>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
-            <div>
-              <Card
-                url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-                price='1$'
-                item='Moscow'
-                author='Viladimir Puhtin'
-              />
-            </div>
+           {children}
           </div>
         </div>
       </OpenDiv>
       <div className={`${open ? 'hidden lg:flex' : 'flex z-10'}`}>
         <div className={`md:gap-10 w-[300px] flex`}>
-          <Card
-            url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-            price='1$'
-            item='Moscow'
-            author='Viladimir Puhtin'
-          />
-          <Card
-            url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-            price='1$'
-            item='Moscow'
-            author='Viladimir Puhtin'
-          />
-          <Card
-            url='https://images.unsplash.com/photo-1651178948674-7b1cbf55ea59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-            price='1$'
-            item='Moscow'
-            author='Viladimir Puhtin'
-            className='hidden lg:block'
-          />
         </div>
       </div>
     </div>

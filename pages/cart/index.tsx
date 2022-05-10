@@ -3,6 +3,7 @@ import Button from '@components/button/Button';
 import { styled } from '@stitches/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CartMap from '../../ileterations/cart/Cart';
 import { HeartIcon, XIcon } from '@heroicons/react/outline';
 import { HeartIcon as HeartFilledIcon } from '@heroicons/react/solid';
 const ShoppingH4 = styled('h4', {
@@ -92,49 +93,59 @@ const Cart = () => {
         </div>
         <div className='flex'>
           <div className='flex flex-col'>
-            <div className='flex w-full'>
-              <div className='ml-32 mt-4 w-[50vw] flex'>
-                <div className='w-[100vw] items-center h-40 border border-midnight'>
-                  <div className='flex p-[0.6rem] pt-[0.45rem]'>
-                    <Link href='/items/mens/rock'>
-                      <a>
-                        <Image
-                          width={100}
-                          height={170}
-                          objectFit='cover'
-                          src={
-                            'https://img.perniaspopupshop.com/catalog/product/d/m/DMMC042202_1.jpg?impolicy=detailimageprod'
-                          }
-                          alt=''
-                        />
-                      </a>
-                    </Link>
-                    <div className='flex justify-between w-full ml-5'>
-                      <div className=''>
-                        <Link href='/items/mens/rock'>
-                          <a>
-                            <AuthorH4>Peeki Kaka</AuthorH4>
-                          </a>
-                        </Link>
-                        <ItemP>Jojo Apten</ItemP>
-                        <DiscountH5>Discount: 20%</DiscountH5>
-                      </div>
-                      <div className='mt-2 mr-2'>
-                        <PriceH2>120$</PriceH2>
-                        <div className='mt-[4.5rem] flex gap-2'>
-                          <LikeButton>
-                            <HeartIcon height={24} width={24} strokeWidth={1} />
-                          </LikeButton>
-                          <CloseButton>
-                            <XIcon height={24} width={24} strokeWidth={1} />
-                          </CloseButton>
+            {CartMap.map(({ author, product, price, url, link, discount }) => (
+              <div key={author + product + price + url} className='flex w-full'>
+                <div className='ml-32 mt-4 w-[50vw] flex'>
+                  <div className='w-[100vw] items-center h-40 border border-midnight'>
+                    <div className='flex p-[0.6rem] pt-[0.45rem]'>
+                      <Link href={link}>
+                        <a>
+                          <Image
+                            width={100}
+                            height={170}
+                            objectFit='cover'
+                            src={`${url}`}
+                            alt=''
+                          />
+                        </a>
+                      </Link>
+
+                      <div className='flex justify-between w-full ml-5'>
+                        <div className=''>
+                          <Link href='/items/mens/rock'>
+                            <a>
+                              <AuthorH4>{author}</AuthorH4>
+                            </a>
+                          </Link>
+                          <ItemP>{product}</ItemP>
+                          <DiscountH5>
+                            Discount: {discount ? discount.toString() : '0'}%
+                          </DiscountH5>
+                        </div>
+                        <div className='mt-2 mr-2'>
+                          <PriceH2>
+                            {'₹'}
+                            {price}
+                          </PriceH2>
+                          <div className='mt-[4.5rem] flex gap-2'>
+                            <LikeButton>
+                              <HeartIcon
+                                height={24}
+                                width={24}
+                                strokeWidth={1}
+                              />
+                            </LikeButton>
+                            <CloseButton>
+                              <XIcon height={24} width={24} strokeWidth={1} />
+                            </CloseButton>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
 
           <div className='border border-midnight w-[30vw] h-40 mt-4 ml-[7.3rem] mr-[7.4rem]'>
@@ -158,42 +169,44 @@ const Cart = () => {
       <div className='mt-64 block md:hidden'>
         <div>
           <div>
-            <div className='pb-96'>
-              <div className='border border-midnight mx-8 mt-32 h-[27rem]'>
-                <div className='flex'>
-                  <div className='ml-6 mt-6 h-[380px] bg-sky w-[200px]'>
-                    <Link href={`/items/mens/rock`}>
-                      <a>
-                        <Image
-                          layout='responsive'
-                          height={380}
-                          width={200}
-                          src={
-                            'https://img.perniaspopupshop.com/catalog/product/d/m/DMMC042202_1.jpg?impolicy=detailimageprod'
-                          }
-                          objectFit='cover'
-                          alt=''
-                        />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className='ml-20 mt-5 flex items-end'>
-                    <div>
-                      <AuthorH4>Jimmy Kaka</AuthorH4>
-                      <ItemP>Jojo Apten</ItemP>
-                      <PriceH2>₹10,000</PriceH2>
+            <div className='pb-[32rem]'>
+              {CartMap.map(({author, product, url, link, discount, price}) => (
+                <div key={author + product + url + link + discount} className='border border-midnight mx-8 mt-32 h-[27rem]'>
+                  <div className='flex'>
+                    <div className='ml-6 mt-6 h-[380px] bg-sky w-[200px]'>
+                      <Link href={`/items/mens/rock`}>
+                        <a>
+                          <Image
+                            layout='responsive'
+                            height={380}
+                            width={200}
+                            src={
+                             url
+                            }
+                            objectFit='cover'
+                            alt=''
+                          />
+                        </a>
+                      </Link>
                     </div>
-                    <div className='ml-24 space-x-7'>
-                      <button>
-                        <HeartIcon height={80} width={80} strokeWidth={1} />
-                      </button>
-                      <button>
-                        <XIcon height={80} width={80} strokeWidth={1} />
-                      </button>
+                    <div className='ml-20 mt-5 flex items-end'>
+                      <div>
+                        <AuthorH4 css={{width: 700}}>{author}</AuthorH4>
+                        <ItemP>{product}</ItemP>
+                        <PriceH2>{'₹'}{price}</PriceH2>
+                      </div>
+                      <div className='mb-6 space-x-8 flex'>
+                        <button>
+                          <HeartIcon height={80} width={80} strokeWidth={1} />
+                        </button>
+                        <button>
+                          <XIcon height={80} width={80} strokeWidth={1} />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
