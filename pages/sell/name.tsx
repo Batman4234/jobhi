@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 const Index = () => {
   const [value, setValue] = useState('');
@@ -8,18 +7,19 @@ const Index = () => {
     <div className='grid min-h-screen place-items-center mt-[37rem] lg:mt-0 '>
       <div className='w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 font-[Montserrat]'>
         <span className='lg:text-2xl text-[70px] font-[Montserrat] tracking-tight uppercase' style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}>
-          What Is your email?
+          Enter your product{"'"}s name?
         </span>
         <form className='mt-6'>
           <input
-            type='email'
-            placeholder='support@jobhi.com'
+            type='text'
+            placeholder='Enter Your Name Here'
             className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
+            style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}
             onChange={(e) => {
               setValue(e.target.value);
             }}
             value={value}
-            style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}
+
           />
           <button
             type='submit'
@@ -27,7 +27,7 @@ const Index = () => {
             style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}
             onClick={(e) => {
               e.preventDefault();
-              if (value.includes('@') && value.trim() !== '') return router.push('/signup/password');
+              if (value.trim() !== '') return router.push('/sell/cloth');
             }}
           >
             submit

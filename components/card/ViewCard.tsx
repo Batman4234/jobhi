@@ -31,6 +31,7 @@ const AllDiv = styled('div', {
   bottom: 0,
   width: '100%',
   height: '100%',
+  display:'flex',
   // overflowX: 'hidden',
   '@media only screen and (max-width:900px)': {
     marginTop: '30vh',
@@ -70,7 +71,9 @@ const ButtonBread = styled('button', {
   textTransform: 'capitalize',
   fontFamily: 'Poppins'
 });
-const ImageDiv = styled('div', {});
+const ImageDiv = styled('div', {
+  marginLeft: 10
+});
 const CardDiv = styled('div', {
   padding: '10px 12px 6px 12px',
   position: 'relative',
@@ -125,7 +128,6 @@ const ImageButton = styled('button', {
 });
 const ThirdDiv = styled('div', {
   position: 'absolute',
-  marginLeft: '36%',
   marginTop: '3%',
   '@media only screen and (max-width:600px)': {
     marginTop: '1800px',
@@ -206,7 +208,7 @@ const ItemDesc = styled('p', {
   width: 540,
   '@media only screen and (max-width: 900px)': {
     fontSize: 50,
-    width: 900,
+    width: 317,
   },
   textTransform: 'capitalize'
 });
@@ -280,7 +282,7 @@ const ViewCard: FC<Props> = ({
             )}
           </div>
         </HeaderDiv>
-        <ThirdDiv className={`hidden lg:${hov ? 'flex' : 'hidden'}`}>
+        <ThirdDiv css={{marginLeft: '36%'}} className={`hidden lg:${hov ? 'flex' : 'hidden'}`}>
           <ImaagesDiv>
             <Imaages
               width={800}
@@ -291,8 +293,8 @@ const ViewCard: FC<Props> = ({
             />
           </ImaagesDiv>
         </ThirdDiv>
-        <ThirdDiv className={`flex lg:${hov ? 'hidden' : 'flex'}`}>
-          <div className='ml-0 md:ml-32 '>
+        <ThirdDiv className={`flex ml-0 md:ml-[16%] lg:${hov ? 'hidden' : 'flex'}`}>
+          <div className='relative left-64 md:ml-32 '>
             <AuthorH4>{author}</AuthorH4>
             {liked ? (
               <LikeButton>
@@ -327,7 +329,7 @@ const ViewCard: FC<Props> = ({
                 <SizeH4>Select Your Size</SizeH4>
                 <Link href='/men/sizes'>
                   <a className='flex'>
-                    <SizeButton>What Is Your Size?</SizeButton>
+                    <SizeButton>Enter Your Size?</SizeButton>
                   </a>
                 </Link>
               </div>
@@ -351,8 +353,8 @@ const ViewCard: FC<Props> = ({
               <div>
                 <div className='flex lg:mt-[39px] mt-[100px] gap-10 lg:gap-2'>
                   <ItemH4>
-                    <Cloth className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />
-                    Cloth:
+                    <Cloth strokeWidth={1} className='h-[80px] w-[80px] lg:h-[28px] lg:w-[28px]' />
+                    Material:
                   </ItemH4>
                   <ItemDesc> {cloth} </ItemDesc>
                 </div>
@@ -367,7 +369,7 @@ const ViewCard: FC<Props> = ({
                   <ItemDesc> {color} </ItemDesc>
                 </div>
               </div>
-              <div className='flex gap-10 mb-[400px] mt-10 lg:mb-10 lg:mt-3'>
+              <div className='flex gap-10 relative right-20 md:right-0  mb-[400px] mt-10 lg:mb-10 lg:mt-3 '>
                 <Button
                   on={true}
                   width='210px'

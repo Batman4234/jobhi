@@ -27,6 +27,7 @@ const AuthorH4 = styled('button', {
     color: '#5A5555',
   },
   '@media only screen and (max-width: 900px)': {
+    display: 'flex',
     fontSize: 100,
   },
 });
@@ -113,7 +114,7 @@ const Cart = () => {
                       <div className='flex justify-between w-full ml-5'>
                         <div className=''>
                           <Link href='/items/mens/rock'>
-                            <a>
+                            <a className="flex">
                               <AuthorH4>{author}</AuthorH4>
                             </a>
                           </Link>

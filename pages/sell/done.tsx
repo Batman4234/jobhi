@@ -14,11 +14,6 @@ const Done = () => {
           Done
         </span>
         <span className='flex' style={{transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',}}><ThumbUpIcon className="lg:h-[70px] lg:w-[70px] h-[200px] w-[200px] " strokeWidth={0.5} /></span> </div>
-        <div className='flex ml-32 lg:ml-6'>
-          <span style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)', }}className='flex text-[90px] lg:text-[30px] font-[Montserrat] tracking-tight font-extralight text-[#5A5555] uppercase'>
-          Please Check Your Email
-        </span>
-        </div>
         </div>
         </div>
   )

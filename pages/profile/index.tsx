@@ -45,19 +45,19 @@ const Index = () => {
           </div>
           <div>
             <label
-              htmlFor='email'
+              htmlFor='phone'
               className='block lg:text-xs text-[30px] font-medium text-gray-400 uppercase tracking-wide '
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
-              E-mail
+              PHONE
             </label>
             <input
               disabled
-              type='email'
-              name='email'
-              id='email'
+              type='number'
+              name='phone'
+              id='phone'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`yoras@gmail.com`}
+              placeholder={`Enter your phone number here`}
               className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
             />
           </div>
@@ -74,7 +74,7 @@ const Index = () => {
               name='address'
               id='address'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`yoras mahal, Kasaragod, London, Beizel`}
+              placeholder={`Yoras mahal, Kasaragod, London, Beizel`}
               className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm lg:mt-2 bg-sky border border-midnight focus:outline-none rounded-sm capitalize'
             />
           </div>
@@ -85,7 +85,7 @@ const Index = () => {
               className='w-full py-8 lg:py-3 lg:mt-6 pl-20 lg:pl-6 tracking-widest text-midnight bg-sky uppercase border border-midnight shadow-lg rounded-sm lg:text-lg lg:pr-3 pr-10 text-[50px] text-center'
               onClick={(e) => {
                 e.preventDefault();
-                if (value.trim() !== '') return router.push('/signup/done');
+                if (value.trim() !== '') return router.push('/sign/done');
               }}
             >
               submit

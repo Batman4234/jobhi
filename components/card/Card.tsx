@@ -12,6 +12,7 @@ export interface Props {
   price: string;
   url: string;
   open?: boolean;
+  src?: string;
 }
 const ContentDiv = styled('div', {
   display: 'flex',
@@ -43,6 +44,7 @@ const Card: FC<Props> = ({
   item,
   price,
   url,
+  src="/items/mens/mande"
 }) => {
   const AuthorH4 = styled('h4', {
     fontFamily: 'Poppins',
@@ -92,7 +94,7 @@ const Card: FC<Props> = ({
     borderRadius: '0.5rem',
   });
   return (
-    <Link href='/items/mens/rock'>
+    <Link href={src}>
       <a className='flex'>
         <div className={`flex bg-white z-20 mb-32 lg:mb-56 ${className}`}>
           <ImageDiv className={classNames?.ImageDiv}>
