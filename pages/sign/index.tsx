@@ -8,7 +8,7 @@ const Index = () => {
   const [page, setPage] = useState(0);
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
-  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordOpen, setPasswordOpen] = useState(false);
   const [address, setAddress] = useState('');
@@ -17,7 +17,7 @@ const Index = () => {
     axios.post('/api/sign/user/create', {
       name,
       nickname,
-      phone,
+      email,
       password,
       address,
     });
@@ -54,7 +54,7 @@ const Index = () => {
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
               {(page === 2 && ' Nickname?') ||
-                (page === 3 && 'Enter your phone number') ||
+                (page === 3 && 'Enter your e-mail number') ||
                 (page === 4 && 'Enter A Password') ||
                 (page === 5 && 'Enter the address for orders?') ||
                 (page === 1 && 'Enter your name')}
@@ -83,7 +83,7 @@ const Index = () => {
                 }
                 placeholder={
                   (page === 2 && 'Your Nickname Here') ||
-                  (page === 3 && 'Enter your phone number here') ||
+                  (page === 3 && 'Enter your e-mail number here') ||
                   (page === 5 && 'Address For Orders') ||
                   (page === 1 && 'Your Name Here') ||
                   ''
@@ -91,7 +91,7 @@ const Index = () => {
                 value={
                   (page === 1 && name) ||
                   (page === 2 && nickname) ||
-                  (page === 3 && phone) ||
+                  (page === 3 && email) ||
                   (page === 4 && password) ||
                   address
                 }
@@ -101,7 +101,7 @@ const Index = () => {
                   } else if (page === 2) {
                     setNickname(e.target.value);
                   } else if (page === 3) {
-                    setPhone(e.target.value);
+                    setEmail(e.target.value);
                   } else if (page === 4) {
                     setPassword(e.target.value);
                   } else {
@@ -154,7 +154,7 @@ const Index = () => {
                     if (nickname.trim() !== '') return setPage(page + 1);
                     break;
                   case 3:
-                    if ((phone)) return setPage(page + 1);
+                    if ((email)) return setPage(page + 1);
                     break;
                   case 4:
                     if (password.trim().length >= 8) return setPage(page + 1);

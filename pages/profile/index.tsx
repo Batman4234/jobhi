@@ -45,19 +45,19 @@ const Index = () => {
           </div>
           <div>
             <label
-              htmlFor='phone'
+              htmlFor='email'
               className='block lg:text-xs text-[30px] font-medium text-gray-400 uppercase tracking-wide '
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
-              PHONE
+              email
             </label>
             <input
               disabled
-              type='number'
-              name='phone'
-              id='phone'
+              type='email'
+              name='email'
+              id='email'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`Enter your phone number here`}
+              placeholder={`Enter your email here`}
               className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
             />
           </div>

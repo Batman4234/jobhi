@@ -8,7 +8,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const { name, nickname, phone, password: passwordRaw, address } = req.body;
+    const { name, nickname, email, password: passwordRaw, address } = req.body;
 
     try {
       // Hash Password
@@ -19,7 +19,7 @@ export default async function handler(
           data: {
             name,
             nickname,
-            phone,
+            email,
             password: hash,
             address,
           },

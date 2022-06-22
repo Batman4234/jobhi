@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { EyeIcon, EyeOffIcon, ThumbUpIcon } from '@heroicons/react/outline';
 
 const Index = () => {
-  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [open, setOpen] = useState(false);
 
@@ -23,18 +23,18 @@ const Index = () => {
         <form className='mt-6'>
           <div>
             <label
-              htmlFor='phone'
+              htmlFor='email'
               className='block lg:text-xs text-[30px] font-medium text-gray-600 uppercase tracking-wide '
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
-              PHONE
+              Email
             </label>
             <input
-              id='phone'
-              type='number'
-              name='phone'
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder='Enter your phone number here'
+              id='email'
+              type='email'
+              name='email'
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder='Enter your email here'
               className='block w-full lg:p-3 mt-6 p-6 text-[40px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             />
@@ -92,7 +92,7 @@ const Index = () => {
                 e.preventDefault();
                 axios
                   .post('/api/sign/user/find', {
-                    phone,
+                    email,
                     password,
                   })
                   .then((res) => {

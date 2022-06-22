@@ -58,21 +58,21 @@ const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) =>
         </div>
       </div>
       <OpenDiv>
-        <div>
-          <div className='grid grid-cols-2 gap-[600px] md:gap-28 md:grid-cols-3 h-full'>
+        <div className="flex">
+          <div className='grid grid-cols-2 md:gap-[17.76%] gap-[600px]  md:grid-cols-3 h-full'>
            {children}
           </div>
         </div>
       </OpenDiv>
-      <div className={`${open ? 'hidden lg:flex' : 'flex z-10'}`}>
-        <div className={`md:gap-28 flex`}>
+      <div className={`${open ? 'hidden lg:block' : 'z-10'}`}>
+        <div className={`justify-between flex`}>
           <div>
             {Child[0]}
           </div>
           <div>
             {Child[1]}
           </div>
-          <div className='hidden lg:flex'>
+          <div className='hidden md:flex mr-6'>
             {Child[2]}
           </div>
         </div>

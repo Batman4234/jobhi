@@ -7,16 +7,16 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const { phone, password: passwordRaw } = req.body;
+    const { email, password: passwordRaw } = req.body;
     try {
-      const userPhoneFound = await prisma.user.findFirst({
+      const emailFound = await prisma.user.findFirst({
         where: {
-          phone
+          email
         }
       })
       try {
         const hash = await argon2.verify(
-          `${userPhoneFound?.password}`,
+          `${emailFound?.password}`,
           passwordRaw
         );
         if (hash) return res.status(200).send({ success: true });
