@@ -92,8 +92,7 @@ const Card: FC<Props> = ({
   });
   return (
     <Link href={src}>
-      <a className=''>
-        <div className={`flex bg-white z-20  ${className ? className : ''}`}>
+      <a className='flex bg-white z-20'>
           <ImageDiv className={classNames?.ImageDiv}>
             <Image
               layout='responsive'
@@ -108,13 +107,10 @@ const Card: FC<Props> = ({
               src={url}
               alt=''
             />
-            <ContentDiv className={`${classNames?.ContentDiv}`}>
               <AuthorH4>{author}</AuthorH4>
               <ItemH4>{item}</ItemH4>
               <PriceTag>{price}</PriceTag>
-            </ContentDiv>
           </ImageDiv>
-        </div>
       </a>
     </Link>
   );
