@@ -56,9 +56,11 @@ const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) =>
           </ViewH4>
         </div>
       </div>
-          <div className={`grid grid-cols-2 md:gap-0 md:padding-inline gap-[600px]  md:grid-cols-3 h-full`}>
+        <div className={`${open ? 'block' : 'hidden'}`}>
+          <div className='grid grid-cols-2 md:gap-0 md:justify-between gap-[600px]  md:grid-cols-3 h-full'>
            {children}
           </div>
+        </div>
       <div className={`${open ? 'hidden' : 'z-10'}`}>
         <div className={`justify-between flex`}>
           <div>
