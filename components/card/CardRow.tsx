@@ -31,9 +31,8 @@ const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) =>
   const OpenDiv = styled('div', {
     display: `${!open ? 'none' : 'flex'}`,
     position: 'absolute',
-    width: '100vw',
+    width: '100%',
     backgroundColor: 'White',
-    height: 2000,
     zIndex: `${open ? 30 : 20 }`,
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
@@ -58,13 +57,13 @@ const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) =>
         </div>
       </div>
       <OpenDiv>
-        <div className="flex">
-          <div className='grid grid-cols-2 md:gap-[17.76%] gap-[600px]  md:grid-cols-3 h-full'>
+        <div className="flex justify-center">
+          <div className='grid grid-cols-2 md:gap-0 md:justify-between gap-[600px]  md:grid-cols-3 h-full'>
            {children}
           </div>
         </div>
       </OpenDiv>
-      <div className={`${open ? 'hidden lg:block' : 'z-10'}`}>
+      <div className={`${open ? 'hidden' : 'z-10'}`}>
         <div className={`justify-between flex`}>
           <div>
             {Child[0]}

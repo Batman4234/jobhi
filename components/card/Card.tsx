@@ -83,11 +83,8 @@ const Card: FC<Props> = ({
   });
   const ImageDiv = styled('div', {
     position: 'relative',
-    marginLeft: '100px',
-    height: height ? height : 300,
     width: width ? width : 300,
     '@media screen and (max-width: 600px)': {
-      height: 500,
       width: 500,
     },
     zIndex: 30,
@@ -95,15 +92,14 @@ const Card: FC<Props> = ({
   });
   return (
     <Link href={src}>
-      <a className='flex'>
-        <div className={`flex bg-white z-20 mb-32 lg:mb-56 ${className}`}>
+      <a className=''>
+        <div className={`flex bg-white z-20  ${className ? className : ''}`}>
           <ImageDiv className={classNames?.ImageDiv}>
             <Image
               layout='responsive'
               height={19}
               width={12}
               quality={100}
-              priority={true}
               objectFit='cover'
               className={`${classNames?.Image} z-0 ${styles.image} hover:scale-105`}
               style={{
