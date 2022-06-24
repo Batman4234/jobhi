@@ -57,7 +57,7 @@ const Index = () => {
               name='email'
               id='email'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`Enter your email here`}
+              placeholder={`Enter your e-mail here`}
               className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
             />
           </div>

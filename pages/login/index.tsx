@@ -27,14 +27,14 @@ const Index = () => {
               className='block lg:text-xs text-[30px] font-medium text-gray-600 uppercase tracking-wide '
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
-              Email
+              E-Mail
             </label>
             <input
               id='email'
               type='email'
               name='email'
               onChange={(e) => setEmail(e.target.value)}
-              placeholder='Enter your email here'
+              placeholder='Enter your e-mail here'
               className='block w-full lg:p-3 mt-6 p-6 text-[40px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             />
@@ -112,7 +112,7 @@ const Index = () => {
                     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
                   }}
                 >
-                  Create An Account.
+                  Create An Account
                 </button>
               </a>
             </Link>

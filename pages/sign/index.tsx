@@ -54,7 +54,7 @@ const Index = () => {
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
               {(page === 2 && ' Nickname?') ||
-                (page === 3 && 'Enter your e-mail number') ||
+                (page === 3 && 'Enter your e-mail') ||
                 (page === 4 && 'Enter A Password') ||
                 (page === 5 && 'Enter the address for orders?') ||
                 (page === 1 && 'Enter your name')}
@@ -74,7 +74,7 @@ const Index = () => {
               <input
                 type={
                   page === 3
-                    ? 'number'
+                    ? 'email'
                     : `${
                         page === 4
                           ? `${passwordOpen ? 'text' : 'password'}`
@@ -194,10 +194,11 @@ const Index = () => {
           <div className='flex items-center gap-10 lg:gap-2'>
             <span
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              className='flex text-[250px] lg:text-[70px] font-[Montserrat] tracking-tight font-extralight uppercase'
+              className='flex ml-64 md:ml-24 text-[250px] lg:text-[70px] font-[Montserrat] tracking-tight font-extralight uppercase'
             >
-              Otp
+              OTP
             </span>
+            <span className='md:text-xs self-start md:mt-8 mt-24 text-2xl'>Check your e-mail</span>
           </div>
           <div>
             <div className='flex space-x-20 mt-10 ml-10'>

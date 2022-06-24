@@ -64,15 +64,8 @@
     left: 19%;
   }
 }
-/* @media screen and (min-width: 1500px) {
-  .logo {
-    margin-left: 28vw;
-    left: 4%;
-  }
-}
 @media screen and (min-width: 2000px) {
   .logo {
-    margin-left: 20vw;
-    left: 5%;
+    left: 10%;
   }
-} */
+}
