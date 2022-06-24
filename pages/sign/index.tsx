@@ -24,19 +24,17 @@ const Index = () => {
   }
   return (
     <>
-      <div className={`mt-52 md:mt-32 ${page === 0 ? 'block' : 'hidden'}`}>
-        <div className='flex bg-sky border border-midnight py-24 justify-center'>
-          <div className='p-12 text-center max-w-2xl'>
+      <div className={`mt-52 text-center md:mt-32 py-24 w-full justify-center border border-midnight absolute ${page === 0 ? 'flex' : 'hidden'}`}>
+          <div className='text-center'>
             <div className='md:text-3xl text-[4rem] font-[Poppins]'>
               Start Signing Up
             </div>
             <div>
-              <Button width={200} onClick={() => setPage(1)} className='ml-5'>
+              <Button width={200} mobileWidth={500} onClick={() => setPage(1)} className='ml-5'>
                 let{"'"}s start
               </Button>
             </div>
           </div>
-        </div>
       </div>
       <div
         className={`min-h-screen place-items-center mt-[37rem] lg:mt-0 ${

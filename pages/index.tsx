@@ -24,8 +24,8 @@ const TransitionDiv = styled('div', {
 });
 const Home: NextPage = () => {
   return (
-    <TransitionDiv className='grid space-y-14'>
-      <CardRow name='Trending' className='mt-80 md:mt-40 lg:mt-[80px]'>
+    <TransitionDiv className='grid space-y-[8.5rem] md:space-y-14'>
+      <CardRow name='Trending' className=''>
         <Card
           url='https://images.unsplash.com/photo-1533738363-b7f9aef128ce?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500'
           price='₹10,000'
@@ -85,7 +85,8 @@ const Home: NextPage = () => {
           item='Yojo Apten'
           author='Mande Kaka'
         />
-      </CardRow> <CardRow name='Mens' className=''>
+      </CardRow>
+      <CardRow name='Mens' className=''>
         <Card
           url='https://images.unsplash.com/photo-1533738363-b7f9aef128ce?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500'
           price='₹10,000'

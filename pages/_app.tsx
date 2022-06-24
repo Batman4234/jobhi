@@ -6,10 +6,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Header />
-      <main className="h-[1300px] w-[1300px] lg:h-full lg:w-full">
+      <main>
         <Component {...pageProps} />
       </main>
-    <BottomNavigation />
+    {/* <BottomNavigation /> */}
       </>
   );
 }

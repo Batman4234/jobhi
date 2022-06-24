@@ -24,7 +24,7 @@ const Index = () => {
           <div>
             <label
               htmlFor='email'
-              className='block lg:text-xs text-[30px] font-medium text-gray-600 uppercase tracking-wide '
+              className='block lg:text-xs text-[35px] font-medium text-midnight uppercase tracking-wide '
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
               E-Mail
@@ -35,14 +35,14 @@ const Index = () => {
               name='email'
               onChange={(e) => setEmail(e.target.value)}
               placeholder='Enter your e-mail here'
-              className='block w-full lg:p-3 mt-6 p-6 text-[40px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
+              className='block w-full lg:p-3 mt-6 p-12 text-[45px] lg:text-sm lg:mt-2 placeholder:text-gray-700 text-midnight border border-midnight focus:outline-none rounded-sm'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             />
           </div>
           <div>
             <label
               htmlFor='password'
-              className='block md:mt-2 text-[30px] mt-8 lg:text-xs font-medium text-midnight uppercase'
+              className='block md:mt-2 text-[35px] mt-8 lg:text-xs font-medium text-midnight uppercase'
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
             >
               Password
@@ -54,7 +54,7 @@ const Index = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 name='password'
                 placeholder='********'
-                className='w-full outline-none lg:p-0 mt-6 p-6 text-[50px] lg:text-base lg:mt-0 text-gray-700 bg-sky  focus:outline-none rounded-sm'
+                className='w-full outline-none lg:p-0 mt-6 p-3 pl-9 text-[50px] lg:text-base lg:mt-0 text-gray-700 bg-sky  focus:outline-none rounded-sm'
                 style={{
                   transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
                 }}
@@ -105,21 +105,19 @@ const Index = () => {
           </div>
           <div className='justify-between flex'>
             <Link href='/sign'>
-              <a>
-                <button
-                  className='flex text-[30px] mt-10 w-64 lg:mt-4 lg:text-xs lg:w-32 text-midnight cursor-pointer hover:text-gray-800 capitalize transition'
-                  style={{
-                    transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
-                  }}
-                >
-                  Create An Account
-                </button>
+              <a
+                className='flex text-[40px] mt-10 lg:mt-4 lg:text-xs lg:w-32 text-midnight cursor-pointer hover:text-gray-800 capitalize transition'
+                style={{
+                  transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
+                }}
+              >
+                Create An Account
               </a>
             </Link>
 
             <button
               style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              className='flex text-[30px] mt-10 w-58 lg:mt-4 lg:text-xs lg:w-28 text-gray-500 cursor-pointer hover:text-midnight capitalize transition'
+              className='flex text-[40px] mt-10 w-58 lg:mt-4 lg:text-xs lg:w-28 text-gray-500 cursor-pointer hover:text-midnight capitalize transition'
             >
               Forgot password?
             </button>
