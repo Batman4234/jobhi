@@ -14,7 +14,6 @@ import { SearchIcon } from '@heroicons/react/outline';
 import debounce from 'lodash/debounce';
 import CardRow from 'components/card/CardRow';
 const StyledCollapsible = styled(CollapsiblePrimitive.Root, {
-  width: 40,
 });
 
 // Exports

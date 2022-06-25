@@ -40,8 +40,8 @@ const CardRow: FC<PropsWithChildren<Props>> = ({ name, className, children }) =>
     <div
       className={`${
         open &&
-        'lg:w-full lg:top-0 lg:bottom-0 lg:left-0 lg:right-0 z-40'
-      } z-20 bg-white ${className ? className : 'mt-80 md:mt-[0px]'} `}
+        'w-full h-full z-40'
+      } z-20 bg-white ${className ? className : 'mt-80 md:mt-40px lg:mt-[80px]'} `}
     >
       <div className={`lg:mt-0 bg-white w-full mb-4`}>
         <div className={`flex justify-between bg-white lg:mb-0 z-20`}>

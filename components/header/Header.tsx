@@ -1,90 +1,72 @@
-import React from 'react';
-import { LoginIcon } from '@heroicons/react/outline';
-import { UserIcon } from '@heroicons/react/outline';
-import { ShoppingBagIcon } from '@heroicons/react/outline';
-import styles from '../../styles/Header.module.css';
+import React, { FC } from 'react';
+import { LoginIcon, UserIcon, ShoppingBagIcon } from '@heroicons/react/outline';
 import Select from './Select';
 import Search from './Search';
 import Image from 'next/image';
-import Logo from '../../public/logo.svg';
 import Link from 'next/link';
 import { styled } from '@stitches/react';
-const BottomBar = styled('div', {
+const HeaderContainer = styled('header', {
+  // Height And Width [ Required ]
+  width: '100%',
+  height: '5rem',
+  // Centering
   display: 'flex',
-  height: '100%',
-  position: 'absolute',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  // Margin And Padding
+  paddingLeft: 45,
+  paddingRight: 20,
+  // Shadow
+  boxShadow:
+    '0px 10px 38px -10px rgba(22, 23, 24, 0.35),0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
+  // Mobile View
+  '@media screen and (max-width: 600px)': {
+    // Adjusting Height
+    height: '6rem',
+  },
 });
-const BottomNav = styled('nav', {
+
+const ButtonContainer = styled('div', {
+  // Adding Space Between 
   display: 'flex',
+  gap: 10
 });
-const Header = () => {
-  const login = false;
+const Header: FC = () => {
+  // Get Logged Results
+  const logged: boolean = true;
   return (
     <>
-      <header className={`${styles.header}`}>
-        <nav className={`${styles.nav} `}>
-          <div aria-label='currency' className={styles.select}>
-            <Select />
-          </div>
-          <div aria-label='logo' className={styles.logo}>
-            <Link href='/'>
-              <a>
-                <Logo
-                  height={230}
-                  width={230}
-                  className='md:h-[200px] md:w-[200px] lg:h-[100px] lg:w-[100px] '
-                />
-              </a>
-            </Link>
-          </div>
-          <div className={styles.icons}>
-            <Search />
-            <div className='flex items-center mr-1'>
-              {login ? (
-                <Link href={'/profile'}>
-                  <a className='flex'>
-                    <button className={styles.button}>
-                      <UserIcon
-                        height={28}
-                        width={28}
-                        strokeWidth={1}
-                        className={styles.iconButton}
-                      />
-                    </button>
-                  </a>
-                </Link>
+      <HeaderContainer>
+        <Select />
+        <Link href='/'>
+          <a className='flex'>
+            <Image
+              src={'/logo.svg'}
+              width={100}
+              height={25}
+              alt='Logo Mascot'
+            />
+          </a>
+        </Link>
+
+        <ButtonContainer>
+          <Search />
+          <Link href={`${!logged ? '/login' : '/profile'}`}>
+            <a className='flex'>
+              {!logged ? (
+                <LoginIcon height={25} width={25} strokeWidth={1} />
               ) : (
-                <Link href={login ? '/profile' : '/login'}>
-                  <a className='flex'>
-                    <button className={styles.button}>
-                      <LoginIcon
-                        height={28}
-                        width={28}
-                        strokeWidth={1}
-                        className={styles.iconButton}
-                      />
-                    </button>
-                  </a>
-                </Link>
+                <UserIcon height={25} width={25} strokeWidth={1} />
               )}
-            </div>
-            <div className='flex items-center lg:ml-3'>
-              <Link href={'/cart'}>
-                <a className='flex'>
-                  <button className={styles.button}>
-                    <ShoppingBagIcon
-                      height={28}
-                      width={28}
-                      strokeWidth={1}
-                      className={styles.iconButton}
-                    />
-                  </button>
-                </a>
-              </Link>
-            </div>
-          </div>
-        </nav>
-      </header>
+            </a>
+          </Link>
+          <Link href='/cart'>
+            <a className='flex'>
+              <ShoppingBagIcon height={25} width={25} strokeWidth={1} />
+            </a>
+          </Link>
+        </ButtonContainer>
+      </HeaderContainer>
     </>
   );
 };

@@ -6,23 +6,14 @@ import {ChevronDownIcon} from '@heroicons/react/solid'
 import * as SelectPrimitive from '@radix-ui/react-select';
 
 const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
-  all: 'unset',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: 4,
-  padding: '0 10px',
   fontSize: 10,
   fontWeight: '600',
-  lineHeight: 1,
-  height: 35,
-  gap: 5,
-  backgroundColor: 'white',
+  outline: 'none',
   '@media screen and (max-width:600px)': {
-      height: 100,
-      width: 120,
-      marginTop: 16,
-      fontSize: 30
+      fontSize: 14
   },
 });
 
