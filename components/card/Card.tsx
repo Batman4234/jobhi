@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../../styles/Card.module.css';
 import { styled } from '@stitches/react';
 import { gray } from '@radix-ui/colors';
 export interface Props {
@@ -17,7 +16,6 @@ export interface Props {
 const ContentDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  zIndex: 10,
   height: '14vh',
   backgroundColor: 'white',
   '@media screen and (max-width: 600px)': {
@@ -44,18 +42,20 @@ const Card: FC<Props> = ({
   item,
   price,
   url,
-  src="/items/mens/mande"
+  src = '/items/mens/mande',
 }) => {
+  const DetailContainer = styled('div', {
+    // Margin And Padding
+    marginLeft: 2,
+    marginTop: 4
+  })
   const AuthorH4 = styled('h4', {
     fontFamily: 'Poppins',
     textTransform: 'uppercase',
     fontWeight: 500,
     fontSize: 16.3,
-    marginTop: 4,
-    marginLeft: 2,
-    zIndex: 10,
     '@media screen and (max-width: 600px)': {
-      fontSize: 50,
+      fontSize: 27,
     },
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
@@ -63,55 +63,51 @@ const Card: FC<Props> = ({
     fontFamily: 'Montserrat',
     letterSpacing: '0.050px',
     textTransform: 'capitalize',
-    marginLeft: 2,
     color: gray.gray11,
     maxWidth: 230,
-    zIndex: 10,
     '@media screen and (max-width: 600px)': {
-      fontSize: 40,
+      fontSize: 27,
     },
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
   const PriceTag = styled('h4', {
     fontFamily: 'Poppins',
     // fontFamily: 'Montserrat'
-    zIndex: 10,
     '@media screen and (max-width: 600px)': {
-      fontSize: 50,
+      fontSize: 27,
     },
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
-  const ImageDiv = styled('div', {
-    position: 'relative',
-    width: width ? width : 300,
-    '@media screen and (max-width: 600px)': {
-      width: 500,
-    },
-    zIndex: 30,
-    borderRadius: '0.5rem',
-  });
+  const LinkA = styled('a', {
+    // Background Color
+    backgroundColor: 'white',
+    // Tablet+ View
+    '@media screen and (min-width: 600px)': {
+    // Height And Width
+      width: width ? width : 300
+    }
+  }) 
   return (
-    <Link href={src}>
-      <a className='flex bg-white z-20'>
-          <ImageDiv className={classNames?.ImageDiv}>
-            <Image
-              layout='responsive'
-              height={19}
-              width={12}
-              quality={100}
-              objectFit='cover'
-              className={`${classNames?.Image} z-0 ${styles.image} hover:scale-105`}
-              style={{
-                transition: 'all 300ms cubic-bezier(.73,.08,.53,.81)',
-              }}
-              src={url}
-              alt=''
-            />
-              <AuthorH4>{author}</AuthorH4>
-              <ItemH4>{item}</ItemH4>
-              <PriceTag>{price}</PriceTag>
-          </ImageDiv>
-      </a>
+    <Link href={src} passHref>
+      <LinkA>
+        <Image
+        layout="responsive"
+          height={19}
+          width={12}
+          quality={100}
+          objectFit='cover'
+          className={`hover:scale-105`}
+          style={{
+            transition: 'all 300ms cubic-bezier(.73,.08,.53,.81)',
+          }}
+          src={url}
+          alt=''
+        />
+        <DetailContainer>        <AuthorH4>{author}</AuthorH4>
+        <ItemH4>{item}</ItemH4>
+        <PriceTag>{price}</PriceTag></DetailContainer>
+
+      </LinkA>
     </Link>
   );
 };

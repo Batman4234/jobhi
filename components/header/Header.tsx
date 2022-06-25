@@ -5,10 +5,14 @@ import Search from './Search';
 import Image from 'next/image';
 import Link from 'next/link';
 import { styled } from '@stitches/react';
+import { gray } from '@radix-ui/colors';
 const HeaderContainer = styled('header', {
   // Height And Width [ Required ]
   width: '100%',
   height: '5rem',
+  // Making The Header Fixed To The Top
+  position: 'sticky',
+  top: 0,
   // Centering
   display: 'flex',
   justifyContent: 'space-between',
@@ -16,9 +20,15 @@ const HeaderContainer = styled('header', {
   // Margin And Padding
   paddingLeft: 45,
   paddingRight: 20,
-  // Shadow
+  // Shadow, Background And Backdrop
   boxShadow:
     '0px 10px 38px -10px rgba(22, 23, 24, 0.35),0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backdropFilter: 'blur(16px)',
+    // Borders
+    borderBottom: `1px solid ${gray.gray8}`, 
+    // ZIndex
+    zIndex: 30,
   // Mobile View
   '@media screen and (max-width: 600px)': {
     // Adjusting Height

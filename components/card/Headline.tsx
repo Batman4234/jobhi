@@ -6,13 +6,10 @@ const RecentH1 = styled('h1', {
   fontSize: '20px',
   fontWeight: 500,
   letterSpacing: '0.1px',
-  marginLeft: '100px',
-  marginTop: '4%',
   '@media screen and (max-width: 600px)': {
-    fontSize:80,
+    fontSize:30,
  },
   transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
-
 })
 export interface Props {
 
