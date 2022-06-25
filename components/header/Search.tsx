@@ -4,13 +4,12 @@ import { useState, useCallback } from 'react';
 import { styled, keyframes } from '@stitches/react';
 import { olive, gray } from '@radix-ui/colors';
 import {
-  Cross2Icon,
   MagnifyingGlassIcon,
   DoubleArrowLeftIcon,
 } from '@radix-ui/react-icons';
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
-import { SearchIcon } from '@heroicons/react/outline';
+import { SearchIcon, XIcon } from '@heroicons/react/outline';
 import debounce from 'lodash/debounce';
 import CardRow from 'components/card/CardRow';
 const StyledCollapsible = styled(CollapsiblePrimitive.Root, {
@@ -86,7 +85,8 @@ const InputDiv = styled('div', {
   paddingTop: '5px',
   positin: 'relative',
   display: 'flex',
-  backgroundColor: '#fcfdfc',
+  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  backdropFilter: 'blur(16px)',
   alignItems: 'center',
   border: '1px solid #171717',
   width: '515px',
@@ -104,7 +104,9 @@ const InputText = styled('input', {
   outline: 'none',
   fontSize: '12px',
   fontFamily: 'Montserrat',
-  width: '515px',
+  width: '93%',
+  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  backdropFilter: 'blur(16px)',
 });
 const open = keyframes({
   from: { height: 0 },
@@ -157,7 +159,7 @@ export const CollapsibleDemo = () => {
         <CollapsibleTrigger asChild>
           <IconButton>
             {open ? (
-              <Cross2Icon height={25} width={25} strokeWidth={1} />
+              <XIcon height={25} width={25} strokeWidth={1} />
             ) : (
               <SearchIcon height={25} width={25} strokeWidth={1} />
             )}
