@@ -13,9 +13,10 @@ export interface Props {
   mobileFontSize?: number | string;
   mobileFontWeight?: number | string;
   className?: string;
+  rounded?: number | string;
 }
 
-const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize}) => {
+const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize, rounded}) => {
   const ButtonCM = styled('button', {
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
       backgroundColor: on ? '#171717' : '#fcfdfc',
@@ -26,24 +27,23 @@ const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onC
       backgroundColor: on ? '#fcfdfc' : '#171717',
       color: on ? '#171717' : '#fcfdfc',
     },
-    width: width ? width : 100,
+    borderRadius: rounded ? rounded : 0,
+    width: width ? width : 50,
     '@media only screen and (max-width: 900px)' : {
-    width: mobileWidth ? mobileWidth : 160,
-    height: mobileHeight ? mobileHeight : 120,
-    fontSize: mobileFontSize ? mobileFontSize : 60,
-    fontWeight: mobileFontWeight ? mobileFontWeight : 500
+      width: mobileWidth && mobileWidth || width && width || 200,
+    height: mobileHeight && mobileHeight || height && height || 80,
+    fontSize: mobileFontSize && mobileFontSize || fontSize && fontSize || 25,
+    fontWeight: mobileFontWeight && mobileFontWeight || fontWeight && fontWeight || 700,
     }
   });
   return (
-    <div className='flex'>
       <ButtonCM
         type='submit'
         onClick={onClick}
-        className={`py-3 mt-6 tracking-widest uppercase border border-midnight shadow-lg rounded-sm text-lg ${className}`}
+        className={`py-3 tracking-widest uppercase border border-midnight shadow-lg rounded-sm text-lg ${className}`}
       >
         {children}
       </ButtonCM>
-    </div>
   );
 };
 

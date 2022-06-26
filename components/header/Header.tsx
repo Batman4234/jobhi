@@ -32,7 +32,10 @@ const HeaderContainer = styled('header', {
   // Mobile View
   '@media screen and (max-width: 600px)': {
     // Adjusting Height
-    height: '6rem',
+    height: '4.5rem',
+    // Background And Blur
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backdropFilter: 'blur(20px)'
   },
 });
 

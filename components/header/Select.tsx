@@ -19,14 +19,14 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
 
 const StyledContent = styled(SelectPrimitive.Content, {
   overflow: 'hidden',
-  backgroundColor: olive.olive1,
-  borderRadius: '5px',
+  borderRadius: 10,
+  backgroundColor: 'rgba(255,255,255, 0.9)',
+  backdropFilter: 'blur(20px)',
   boxShadow:
     '0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
     '@media screen and (max-width:600px)': {
-      height: 350,
-      width: 250,
-      borderRadius: 16
+      height: 160,
+      width: 150,
   }
 });
 
@@ -35,7 +35,6 @@ const StyledViewport = styled(SelectPrimitive.Viewport, {
 });
 
 const StyledItem = styled(SelectPrimitive.Item, {
-  all: 'unset',
   fontSize: 10,
   fontWeight: '600',
   lineHeight: 1,
@@ -56,9 +55,9 @@ const StyledItem = styled(SelectPrimitive.Item, {
     color: 'white',
   },
   '@media screen and (max-width:600px)': {
-    height: 100,
-    width: 180,
-    fontSize: 50,
+    height: 50,
+    width: '100%',
+    fontSize: 20,
     borderRadius: 5,
 },
 });
@@ -119,7 +118,7 @@ const Box = styled('div', {
 
 export const SelectDemo = () => (
   <Box>
-    <Select defaultValue="INR">
+    <Select defaultValue="USD">
       <SelectTrigger aria-label="Currency">
         <SelectValue />
         <SelectIcon>
@@ -132,21 +131,20 @@ export const SelectDemo = () => (
         </SelectScrollUpButton>
         <SelectViewport>
           <SelectGroup>
-            <SelectLabel>Currency</SelectLabel>
-            <SelectItem value="INR">
-              <SelectItemText>INR</SelectItemText>
+            <SelectItem value="EUR">
+              <SelectItemText>EUR</SelectItemText>
+              <SelectItemIndicator>
+                <CheckIcon />
+              </SelectItemIndicator>
+            </SelectItem>
+            <SelectItem value="GBP">
+              <SelectItemText>GBP</SelectItemText>
               <SelectItemIndicator>
                 <CheckIcon />
               </SelectItemIndicator>
             </SelectItem>
             <SelectItem value="USD">
               <SelectItemText>USD</SelectItemText>
-              <SelectItemIndicator>
-                <CheckIcon />
-              </SelectItemIndicator>
-            </SelectItem>
-            <SelectItem value="EUR">
-              <SelectItemText>EUR</SelectItemText>
               <SelectItemIndicator>
                 <CheckIcon />
               </SelectItemIndicator>

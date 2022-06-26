@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <main className='h-full w-full'> 
         <Component {...pageProps} />
       </main>
-    {/* <BottomNavigation /> */}
+    <BottomNavigation />
       </>
   );
 }

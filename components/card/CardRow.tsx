@@ -17,7 +17,6 @@ const ViewH4 = styled('button', {
   // Mobile View
   '@media screen and (max-width: 600px)': {
     // Text Updates
-    fontSize: 30,
     // Margin And Padding
     paddingLeft: 15,
   },

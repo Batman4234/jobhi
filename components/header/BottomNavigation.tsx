@@ -1,35 +1,60 @@
-import React from 'react';
+import React from 'react'
+import { styled } from '@stitches/react'
+import Link from 'next/link'
 import {
   HomeIcon,
   SearchIcon,
   StarIcon,
   UserIcon,
 } from '@heroicons/react/outline';
-import Link from 'next/link';
-
+const Navigation = styled('nav', {
+  // Height And Width
+  height: '4.5rem',
+  width: '100%',
+  // Sticking to the bottom
+  position: 'sticky',
+  bottom: 0,
+  // Shadows, Background Color And Backdrop
+  boxShadow:
+  '0px 10px 38px -10px rgba(22, 23, 24, 0.35),0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
+  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+  backdropFilter: 'blur(20px)',
+  // Changing Position Of Items
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-evenly',
+    // Tablet+ View
+  '@media screen and (min-width: 600px)': {
+    // Hide Element
+    display: 'none'
+  }  
+})
+const Anchor = styled('a', {})
 const BottomNavigation = () => {
   return (
-    <div className='flex justify-between items-center fixed bottom-0 w-full border border-gray-300 h-60 md:hidden bg-white z-50 px-16'>
-      <Link href='/'>
-        <a className='flex'>
-          <HomeIcon strokeWidth={1} height={100} width={100} />
-        </a>
+    <Navigation>
+      <Link href="/" passHref>
+        <Anchor>
+          <HomeIcon height={30} width={30} strokeWidth={1}/>
+        </Anchor>
       </Link>
-      <Link href='/search/mobile'>
-        <a className='flex'>
-          <SearchIcon strokeWidth={1} height={100} width={100} />
-        </a>
+      <Link href="/search" passHref>
+        <Anchor>
+          <SearchIcon height={30} width={30} strokeWidth={1}/>
+        </Anchor>
       </Link>
-      <div className='flex'>
-        <StarIcon strokeWidth={1} height={100} width={100} />
-      </div>
-      <Link href={'/profile'}>
-        <a className='flex'>
-          <UserIcon strokeWidth={1} height={100} width={100} />
-        </a>
+      <Link href="/cart" passHref>
+        <Anchor>
+          <StarIcon height={30} width={30} strokeWidth={1}/>
+        </Anchor>
       </Link>
-    </div>
-  );
-};
+      <Link href="/profile" passHref>
+        <Anchor>
+          <UserIcon height={30} width={30} strokeWidth={1}/>
+        </Anchor>
+      </Link>
+    </Navigation>
+  )
+}
 
-export default BottomNavigation;
+export default BottomNavigation

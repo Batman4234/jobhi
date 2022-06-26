@@ -55,7 +55,7 @@ const Card: FC<Props> = ({
     fontWeight: 500,
     fontSize: 16.3,
     '@media screen and (max-width: 600px)': {
-      fontSize: 27,
+      fontSize: 17,
     },
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
@@ -66,7 +66,7 @@ const Card: FC<Props> = ({
     color: gray.gray11,
     maxWidth: 230,
     '@media screen and (max-width: 600px)': {
-      fontSize: 27,
+      fontSize: 15,
     },
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
@@ -74,7 +74,7 @@ const Card: FC<Props> = ({
     fontFamily: 'Poppins',
     // fontFamily: 'Montserrat'
     '@media screen and (max-width: 600px)': {
-      fontSize: 27,
+      fontSize: 17,
     },
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
   });
@@ -82,6 +82,7 @@ const Card: FC<Props> = ({
     // Background Color
     backgroundColor: 'white',
     // Tablet+ View
+    width: 150,
     '@media screen and (min-width: 600px)': {
     // Height And Width
       width: width ? width : 300

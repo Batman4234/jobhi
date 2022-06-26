@@ -1,100 +1,104 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import Button from '@components/button/Button'
+import { gray } from '@radix-ui/colors'
+import { styled } from '@stitches/react'
+import React from 'react'
 
-const Index = () => {
-  const [value, setValue] = useState('');
-  const router = useRouter();
+
+const ProfileContainer = styled('div', {
+  // Height And Width
+  height: '100%',
+  width: '100%',
+  // Margin And Padding
+  padding: 50,
+  // Mobile View
+  '@media screen and (max-width: 600px)': {
+    // Margin And Padding
+    '@media screen and (min-height: 700px) and (max-height: 800px)': {
+      marginBottom: '5vh'
+    },
+    '@media screen and (min-height: 800px) and (max-height: 852px)': {
+      marginBottom: '17vh'
+    },
+    '@media screen and (min-height: 852px) and (max-height: 900px)': {
+      marginBottom: '21.5vh'
+    },
+    '@media screen and (min-height: 900px) and (max-height: 1000px)': {
+      marginBottom: '29vh'
+    },
+  }
+})
+const Container = styled("div", {
+  display: 'flex',
+  flexDirection: 'column'
+})
+const Label = styled('label', {
+  // Text Transformations
+  fontFamily: 'Montserrat',
+  textTransform: 'uppercase',
+  fontSize: 15,
+  letterSpacing: '0.025em',
+})
+const Input = styled('input', {
+  // Height And Width
+  width: '100%',
+  height: '2rem',
+  // Border
+  border: '1px solid #171717' ,
+  // Margin And Padding
+  padding: 8,
+  // Text Transformations
+  fontFamily: 'Poppins',
+  color: '#171717',
+  // Outline
+  outline: 'none',
+  // Transition
+  transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
+})
+const Profile = () => {
   return (
-    <div className='grid min-h-screen place-items-center mt-[37rem] lg:mt-0'>
-      <div className='bg-white w-11/12 p-12 sm:w-8/12 md:w-1/2 lg:w-5/12 mt-[3rem] font-[Montserrat]'>
-        <form className='mt-6 space-y-10'>
-          <div>
-            <label
-              htmlFor='name'
-              className='block lg:text-xs text-[30px] font-medium uppercase tracking-wide text-gray-400 '
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-            >
-              NAME
-            </label>
-            <input
-              type='text'
-              disabled
-              id='name'
-              name='name'
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`yora sokasha`}
-              className='block w-full lg:p-3 mt-6 p-6 text-[50px] capitalize lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
-            />
-          </div>
-          <div>
-            <label
-              htmlFor='nickname'
-              className='block lg:text-xs text-[30px] font-medium text-midnight uppercase tracking-wide '
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-            >
-              NICKNAME
-            </label>
-            <input
-              type='text'
-              id='nickname'
-              name='nickname'
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`yoras`}
-              className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm capitalize lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
-            />
-          </div>
-          <div>
-            <label
-              htmlFor='email'
-              className='block lg:text-xs text-[30px] font-medium text-gray-400 uppercase tracking-wide '
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-            >
-              email
-            </label>
-            <input
-              disabled
-              type='email'
-              name='email'
-              id='email'
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`Enter your e-mail here`}
-              className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm lg:mt-2 text-gray-700 bg-sky border border-midnight focus:outline-none rounded-sm'
-            />
-          </div>
-          <div>
-            <label
-              htmlFor='address'
-              className='block lg:text-xs text-[30px] font-medium text-midnight uppercase tracking-wide '
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-            >
-              address
-            </label>
-            <input
-              type='text'
-              name='address'
-              id='address'
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              placeholder={`Yoras mahal, Kasaragod, London, Beizel`}
-              className='block w-full lg:p-3 mt-6 p-6 text-[50px] lg:text-sm lg:mt-2 bg-sky border border-midnight focus:outline-none rounded-sm capitalize'
-            />
-          </div>
-          <div>
-            <button
-              type='submit'
-              style={{ transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)' }}
-              className='w-full py-8 lg:py-3 lg:mt-6 pl-20 lg:pl-6 tracking-widest text-midnight bg-sky uppercase border border-midnight shadow-lg rounded-sm lg:text-lg lg:pr-3 pr-10 text-[50px] text-center'
-              onClick={(e) => {
-                e.preventDefault();
-                if (value.trim() !== '') return router.push('/sign/done');
-              }}
-            >
-              submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
+    <ProfileContainer className="space-y-10">
+      <Container className="space-y-2">
+        <Label htmlFor="name">name</Label>
+        <Input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Ibrahim Shaz"
+        />
+      </Container>
+      <Container className="space-y-2">
+        <Label htmlFor="nickname">nickname</Label>
+        <Input
+        type="text"
+        name="nickname"
+        id="nickname"
+        placeholder="Jo-Bee"
+        />
+      </Container>
+      <Container css={{color: gray.gray10}}className="space-y-2">
+        <Label htmlFor="email">email</Label>
+        <Input
+        type="email"
+        disabled
+        name="email"
+        id="email"
+        value="ibrahim.shaz670@gmail.com"
+        />
+      </Container>
+      <Container className="space-y-2">
+        <Label htmlFor="address">Address</Label>
+        <Input
+        type="text"
+        name="address"
+        id="address"
+        placeholder="Kasaragod, Kerala, India"
+        />
+      </Container>
+      <Container css={{width: '100%', justifyContent: 'center', flexDirection: 'row'}}>
+        <Button on={true} width={150} height={50} fontWeight={800} fontSize={20} rounded={6}>Save</Button>
+      </Container>
+    </ProfileContainer>
+  )
+}
 
-export default Index;
+export default Profile
