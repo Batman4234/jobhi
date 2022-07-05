@@ -61,7 +61,7 @@ const ViewCard: FC<Props> = ({
     return array;
   };
   const [y, setY] = useState(0);
-  const [hovering, setHovering] = useState(false);
+  const [hovering, setHovering] = useState(true);
   const [url, setUrl] = useState(urls[0]);
   return (
     <div className='h-full w-full pl-5 pt-6 space-y-5 flex flex-col'>
@@ -74,10 +74,9 @@ const ViewCard: FC<Props> = ({
         <div className='hidden w-[7%] lg:flex h-full space-y-6 flex-col'>
           { urls.map((url)=> 
           (
-            <div key={url} className='border border-midnight w-[100%] h-[9rem] flex p-2 items-center'>
+            <div key={url} className='relative border border-midnight w-[100%] h-[9rem] flex p-2 items-center'>
               <Image
-                width={500}
-                height={800}
+              layout="fill"
                 objectFit='cover'
                 src={url}
                 style={{cursor: 'pointer'}}
@@ -98,6 +97,7 @@ const ViewCard: FC<Props> = ({
               url
             }
             alt='Preview'
+            className="cursor-crosshair"
             onMouseEnter={() => {
               setHovering(true);
             }}
@@ -157,7 +157,7 @@ const ViewCard: FC<Props> = ({
             <div>
               <h5 className='font-poppins text-xl flex items-center gap-2'>
                 Select your size
-                <span className='text-xs'>What&apos;s your size?</span>
+                <span className='text-xs cursor-pointer'>What&apos;s your size?</span>
               </h5>
               <div
                 className='grid grid-cols-8 h-full justify-evenly gap-5 mt-5'
@@ -191,13 +191,12 @@ const ViewCard: FC<Props> = ({
             </div>
           </div>
           <div
-            className='h-full w-full'
+            className='relative h-[30rem] w-[60vw]'
             style={{ display: hovering ? 'block' : 'none' }}
           >
             <Image
-              height={715}
+            layout="fill"
               objectPosition={`0 ${y / 4.8}% `}
-              width={1200}
               objectFit='cover'
               src={
                url
