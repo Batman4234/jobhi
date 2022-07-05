@@ -40,7 +40,7 @@ const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onC
       <ButtonCM
         type='submit'
         onClick={onClick}
-        className={`py-3 tracking-widest uppercase border border-midnight shadow-lg rounded-sm text-lg ${className}`}
+        className={`tracking-widest uppercase border border-midnight shadow-lg rounded-sm text-lg ${className}`}
       >
         {children}
       </ButtonCM>

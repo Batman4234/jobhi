@@ -7,8 +7,13 @@ module.exports = {
     extend: {
       colors: {
         midnight: '#171717',
-        sky: '#fcfdfc'
-      }
+        sky: '#fcfdfc',
+        greyo: '#5a5555'
+      },
+      fontFamily: {
+        'montserrat': "Montserrat",
+        "poppins": "poppins"
+      },
     },
   },
 };
