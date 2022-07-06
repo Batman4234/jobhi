@@ -30,6 +30,8 @@ const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onC
     borderRadius: rounded ? rounded : 0,
     width: width ? width : 60,
     height: height ? height : 60,
+    // fontSize: fontSize ? fontSize : '1.25rem',
+    // lineHeight: '1.75rem',
     '@media only screen and (max-width: 900px)' : {
       width: mobileWidth && mobileWidth || width && width,
     height: mobileHeight && mobileHeight || height && height,
@@ -41,7 +43,7 @@ const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onC
       <ButtonCM
         type='submit'
         onClick={onClick}
-        className={`bg-white tracking-widest uppercase border border-midnight shadow-lg rounded-sm text-lg ${className}`}
+        className={`bg-white tracking-widest uppercase border border-midnight shadow-lg rounded-sm ${className}`}
       >
         {children}
       </ButtonCM>

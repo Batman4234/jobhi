@@ -57,7 +57,7 @@ const ViewCard: FC<Props> = ({
     let array = [];
     for (let n: number = 0; n < length; n++) {
       array.push(
-        <Button key={Sizes[n]} height={70} width={50} mobileHeight={50} className={'py-2'}>
+        <Button key={Sizes[n]} height={50} width={50} mobileHeight={50} className={'py-2'}>
           {Sizes[n]}
         </Button>
       );
@@ -119,8 +119,11 @@ const ViewCard: FC<Props> = ({
               setY(y);
             }}
           />
+   <div className='mt-2 hidden md:flex'>
+              <Button mobileWidth={160} fontSize={20} mobileHeight={50} width={151} height={60} fontWeight={500}>Add to cart</Button>
+              <Button mobileWidth={160} mobileHeight={50} width={151} height={60} on={true} font='Montserrat' fontWeight={700}>Buy now</Button>
+            </div>
         </div>
-     
       <div className='relative w-screen h-[70vh] block lg:hidden'>
         <Swiper
           modules={[Pagination, Keyboard, Mousewheel]}
@@ -222,9 +225,9 @@ const ViewCard: FC<Props> = ({
                 <span className='text-greyo capitalize'>{color}</span>
               </h5>
             </div>
-            <div className='my-5'>
-              <Button mobileWidth={160} mobileHeight={50} width={200} height={60} fontWeight={500}>Add to cart</Button>
-              <Button mobileWidth={160} mobileHeight={50} width={200} height={60} on={true} font='Montserrat' fontWeight={700}>Buy now</Button>
+            <div className='my-5 block md:hidden'>
+              <Button mobileWidth={160} mobileHeight={50} fontWeight={500} className="text-lg">Add to cart</Button>
+              <Button mobileWidth={160} mobileHeight={50} on={true} font='Poppins' fontWeight={700} className="text-lg">Buy now</Button>
             </div>
           </div>
         </div>
