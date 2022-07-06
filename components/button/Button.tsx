@@ -28,19 +28,20 @@ const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onC
       color: on ? '#171717' : '#fcfdfc',
     },
     borderRadius: rounded ? rounded : 0,
-    width: width ? width : 50,
+    width: width ? width : 60,
+    height: height ? height : 60,
     '@media only screen and (max-width: 900px)' : {
-      width: mobileWidth && mobileWidth || width && width || 200,
-    height: mobileHeight && mobileHeight || height && height || 80,
-    fontSize: mobileFontSize && mobileFontSize || fontSize && fontSize || 25,
-    fontWeight: mobileFontWeight && mobileFontWeight || fontWeight && fontWeight || 700,
+      width: mobileWidth && mobileWidth || width && width,
+    height: mobileHeight && mobileHeight || height && height,
+    fontSize: mobileFontSize && mobileFontSize || fontSize && fontSize,
+    fontWeight: mobileFontWeight && mobileFontWeight || fontWeight && fontWeight ,
     }
   });
   return (
       <ButtonCM
         type='submit'
         onClick={onClick}
-        className={`tracking-widest uppercase border border-midnight shadow-lg rounded-sm text-lg ${className}`}
+        className={`bg-white tracking-widest uppercase border border-midnight shadow-lg rounded-sm text-lg ${className}`}
       >
         {children}
       </ButtonCM>

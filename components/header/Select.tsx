@@ -10,7 +10,8 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
   alignItems: 'center',
   justifyContent: 'center',
   fontSize: 10,
-  fontWeight: '600',
+  fontFamily: 'Montserrat',
+  fontWeight: '500',
   outline: 'none',
   '@media screen and (max-width:600px)': {
       fontSize: 14
@@ -36,7 +37,8 @@ const StyledViewport = styled(SelectPrimitive.Viewport, {
 
 const StyledItem = styled(SelectPrimitive.Item, {
   fontSize: 10,
-  fontWeight: '600',
+  fontFamily: 'Montserrat',
+  fontWeight: '500',
   lineHeight: 1,
   borderRadius: 3,
   display: 'flex',

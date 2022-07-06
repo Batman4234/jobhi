@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/outline';
 const Navigation = styled('nav', {
   // Height And Width
-  height: '4.5rem',
+  height: '3.5rem',
   width: '100%',
   // Sticking to the bottom
   position: 'sticky',
@@ -17,12 +17,13 @@ const Navigation = styled('nav', {
   // Shadows, Background Color And Backdrop
   boxShadow:
   '0px 10px 38px -10px rgba(22, 23, 24, 0.35),0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
-  backgroundColor: 'rgba(255, 255, 255, 0.85)',
-  backdropFilter: 'blur(20px)',
+  backgroundColor: 'rgba(255, 255, 255)',
   // Changing Position Of Items
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-evenly',
+  // Z Index
+  zIndex: 50,
     // Tablet+ View
   '@media screen and (min-width: 600px)': {
     // Hide Element
