@@ -34,7 +34,7 @@ const Cart = () => {
           <ShoppingH4>cart summary</ShoppingH4>
         </div>
       </div>
-      <div className='w-full h-full mt-4 flex justify-between lg:pr-24 lg:pl-32 md:pl-12 md:pr-6'>
+      <div className='w-full pb-[6rem] h-full mt-4 flex justify-between lg:pr-24 lg:pl-32 md:pl-12 md:pr-6'>
         <div className='grid grid-col space-y-10 w-full '>
           {
             //Cards
@@ -59,7 +59,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className='flex bottom-[4.5rem] md:hidden sticky w-full items-center justify-evenly h-24 bg-white/80 shadow-lg backdrop-filter backdrop-blur-lg'>
+      <div className='flex bottom-[3.5rem] md:hidden fixed w-full items-center justify-evenly h-24 bg-white/80 shadow-lg backdrop-filter backdrop-blur-lg'>
         <h4 className='font-[600] font-[Poppins] text-[30px]'>₹126,500</h4>
         <Button on={true} mobileFontWeight={800} mobileFontSize={20} height={55} width={180}>
           Proceed

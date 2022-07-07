@@ -9,10 +9,11 @@ import {
 } from '@heroicons/react/outline';
 const Navigation = styled('nav', {
   // Height And Width
-  height: '3.5rem',
+  height: '4rem',
   width: '100%',
+  // Margin And Padding
   // Sticking to the bottom
-  position: 'sticky',
+  position: 'fixed',
   bottom: 0,
   // Shadows, Background Color And Backdrop
   boxShadow:

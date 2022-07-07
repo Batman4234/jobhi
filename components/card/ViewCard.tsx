@@ -19,6 +19,12 @@ export interface Props {
   title: string;
   urls: [string, string, string];
 }
+const GridDiv = styled('div', {
+  gridTemplateColumns: "repeat(10, auto)",
+  '@media screen and (max-width: 600px)': {
+  gridTemplateColumns: "repeat(5, auto)",
+  }
+})
 export const StyledSeparator = styled(SeparatorPrimitive.Root, {
   backgroundColor: gray.gray12,
   '&[data-orientation=horizontal]': { height: 1 },
@@ -125,32 +131,6 @@ const ViewCard: FC<Props> = ({
               setY(y);
             }}
           />
-          <div className='hidden md:flex'>
-            <Button
-              mobileWidth={160}
-              fontSize={20}
-              mobileHeight={50}
-              width={151}
-              hover={false}
-              on={false}
-              height={49}
-              fontWeight={500}
-            >
-              Add to cart
-            </Button>
-            <Button
-              mobileWidth={160}
-              mobileHeight={50}
-              width={151}
-              height={49}
-              hover={true}
-              on={true}
-              font='Montserrat'
-              fontWeight={700}
-            >
-              Buy now
-            </Button>
-          </div>
         </div>
         <div className='relative w-screen h-[70vh] block lg:hidden'>
           <Swiper
@@ -224,13 +204,38 @@ const ViewCard: FC<Props> = ({
                   What&apos;s your size?
                 </span>
               </h5>
-              <div
-                className='grid grid-cols-5 md:grid-cols-6 h-full gap-5 mt-5 self-center'
+              <GridDiv
+                className='grid h-full gap-3 mt-5 self-center lg:justify-start'
                 aria-label='Size grid'
               >
                 {FSLoop(size > 10 ? 10 : size)}
+              </GridDiv><div className='my-5 lg:hidden flex justify-center gap-2'>
+              <Button
+              mobileWidth={160}
+              fontSize={20}
+              mobileHeight={50}
+              width={151}
+              hover={false}
+              on={false}
+              height={49}
+              fontWeight={500}
+            >
+              Add to cart
+            </Button>
+            <Button
+              mobileWidth={160}
+              mobileHeight={50}
+              width={151}
+              height={49}
+              hover={true}
+              on={true}
+              font='Montserrat'
+              fontWeight={700}
+            >
+              Buy now
+            </Button>
               </div>
-              <div className='mt-10 space-y-8'>
+              <div className='mb-[5rem] md:mb-3 space-y-5 mt-4 md:mt-8 '>
                 <h5 className='flex font-poppins items-center gap-2'>
                   <span className='gap-3 flex items-center'>
                     <Cloth
@@ -252,28 +257,34 @@ const ViewCard: FC<Props> = ({
                   </span>
                   <span className='text-greyo capitalize'>{color}</span>
                 </h5>
-              </div>
-              <div className='my-5 lg:hidden flex justify-center'>
-                <Button
-                  mobileWidth={160}
-                  mobileHeight={50}
-                  fontWeight={500}
-                  className='text-lg'
-                >
-                  Add to cart
-                </Button>
-                <Button
-                  mobileWidth={160}
-                  mobileHeight={50}
-                  on={true}
-                  font='Poppins'
-                  fontWeight={700}
-                  className='text-lg'
-                >
-                  Buy now
-                </Button>
-              </div>
+              </div>              
             </div>
+            <div className='hidden md:flex'>
+            <Button
+              mobileWidth={160}
+              fontSize={20}
+              mobileHeight={50}
+              width={151}
+              hover={false}
+              on={false}
+              height={49}
+              fontWeight={500}
+            >
+              Add to cart
+            </Button>
+            <Button
+              mobileWidth={160}
+              mobileHeight={50}
+              width={151}
+              height={49}
+              hover={true}
+              on={true}
+              font='Montserrat'
+              fontWeight={700}
+            >
+              Buy now
+            </Button>
+          </div>
           </div>
           <div
             className='relative h-[30rem] w-[57vw] lg:block hidden'

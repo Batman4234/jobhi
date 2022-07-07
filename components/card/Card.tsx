@@ -83,6 +83,8 @@ const Card: FC<Props> = ({
     backgroundColor: 'white',
     // Tablet+ View
     width: 150,
+    // Margin and Padding
+    marginBottom: 50,
     '@media screen and (min-width: 600px)': {
     // Height And Width
       width: width ? width : 300
