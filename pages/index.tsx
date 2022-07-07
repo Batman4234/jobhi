@@ -24,7 +24,7 @@ const TransitionDiv = styled('div', {
 });
 const Home: NextPage = () => {
   return (
-    <TransitionDiv className='grid space-y-[3.6rem] md:space-y-14 h-full w-full mt-5'>
+    <TransitionDiv className='grid space-y-[3.6rem] md:space-y-14 h-full w-full mt-5 pb-[8rem] md:pb-0 '>
       <CardRow name='Trending'>
         <Card
           url='https://images.unsplash.com/photo-1533738363-b7f9aef128ce?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500'

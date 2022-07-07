@@ -34,7 +34,7 @@ const Cart = () => {
           <ShoppingH4>cart summary</ShoppingH4>
         </div>
       </div>
-      <div className='w-full pb-[6rem] h-full mt-4 flex justify-between lg:pr-24 lg:pl-32 md:pl-12 md:pr-6'>
+      <div className='w-full pb-[10rem] h-full mt-4 flex justify-between lg:pr-24 lg:pl-32 md:pl-12 md:pr-6'>
         <div className='grid grid-col space-y-10 w-full '>
           {
             //Cards
