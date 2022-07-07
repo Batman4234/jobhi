@@ -14,18 +14,19 @@ export interface Props {
   mobileFontWeight?: number | string;
   className?: string;
   rounded?: number | string;
+  hover?: boolean;
 }
 
-const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize, rounded}) => {
+const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize, rounded, hover}) => {
   const ButtonCM = styled('button', {
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
       backgroundColor: on ? '#171717' : '#fcfdfc',
       color: on ? '#fcfdfc' : '171717',
     fontFamily: font ? font : 'Poppins',
     fontWeight: fontWeight ? fontWeight : '500',
-    '&:hover': {
-      backgroundColor: on ? '#fcfdfc' : '#171717',
-      color: on ? '#171717' : '#fcfdfc',
+    '&:hover':  {
+      backgroundColor: hover && on ? '#fcfdfc' : `${!hover ? '' : '#171717'}`,
+      color: hover && on ? '#171717' : `${!hover ? '' : '#fcfdfc' }`,
     },
     borderRadius: rounded ? rounded : 0,
     width: width ? width : 60,
@@ -43,7 +44,7 @@ const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onC
       <ButtonCM
         type='submit'
         onClick={onClick}
-        className={`bg-white tracking-widest uppercase border border-midnight shadow-lg rounded-sm ${className}`}
+        className={`tracking-widest uppercase border border-midnight shadow-lg rounded-sm ${className}`}
       >
         {children}
       </ButtonCM>
