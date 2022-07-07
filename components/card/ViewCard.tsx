@@ -211,7 +211,7 @@ const ViewCard: FC<Props> = ({
                 {FSLoop(size > 10 ? 10 : size)}
               </GridDiv><div className='my-5 lg:hidden flex justify-center gap-2'>
               <Button
-              mobileWidth={180}
+              mobileWidth={170}
               fontSize={17}
               mobileHeight={50}
               width={151}
