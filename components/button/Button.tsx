@@ -17,7 +17,7 @@ export interface Props {
   hover?: boolean;
 }
 
-const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize, rounded, hover}) => {
+const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize, rounded, hover=true}) => {
   const ButtonCM = styled('button', {
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
       backgroundColor: on ? '#171717' : '#fcfdfc',
