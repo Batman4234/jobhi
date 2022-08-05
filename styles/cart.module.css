@@ -1,0 +1,13 @@
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    border-radius: 1px;
+  }
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 76%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 85%);
+    }
+  }

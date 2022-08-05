@@ -117,7 +117,6 @@ const Home: NextPage = () => {
   };
   const handleSearch = useCallback(
     debounce((value) => {
-      console.log(value);
       setDebounceValue(value);
     }, 1000),
     []

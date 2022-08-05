@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -11,7 +10,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['images.unsplash.com', 'img.perniaspopupshop.com'],
+    domains: ['images.unsplash.com', 'firebasestorage.googleapis.com'],
   },
 };
 

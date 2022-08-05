@@ -19,7 +19,9 @@
       "@styles/*": ["styles/*"],
       "@components/*": ["components/*"],
       "@public/*": ["public/*"],
-      "@ileterations/*": ["ileterations/*"]
+      "@ileterations/*": ["ileterations/*"],
+      "@lib/*": ["lib/*"],
+      "fetcher": ["utils/fetcher.ts"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

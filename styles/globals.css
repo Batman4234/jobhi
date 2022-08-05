@@ -8,11 +8,11 @@
 *::-webkit-scrollbar-thumb {
   display: none;
 }
-html,
-body {
+#__next {
   margin: 0;
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 }
 ::selection {
@@ -27,7 +27,6 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-
 }
 .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #171717 !important;

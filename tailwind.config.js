@@ -14,6 +14,9 @@ module.exports = {
         'montserrat': "Montserrat",
         "poppins": "poppins"
       },
+      screens: {
+        'xs':  {'max': '300px'}
+            }
     },
   },
 };

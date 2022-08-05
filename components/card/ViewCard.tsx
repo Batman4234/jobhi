@@ -9,15 +9,23 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import axios from 'axios';
+import useSWR from 'swr'
 import { Pagination, Keyboard, Mousewheel } from 'swiper';
+import ToastFunction from '@components/toast';
+import { useAuth } from '@lib/Auth';
+import { useRouter } from 'next/router';
+import { createCart } from '@lib/database';
+import TextCenter from '@components/textMiddle';
+import Head from 'next/head';
 export interface Props {
   author: string;
   color: string;
   material: string;
   price: number | string;
-  size: number;
+  size: any[];
   title: string;
-  urls: [string, string, string];
+  urls: string[];
 }
 const GridDiv = styled('div', {
   gridTemplateColumns: "repeat(10, auto)",
@@ -47,39 +55,31 @@ const ViewCard: FC<Props> = ({
   title,
   urls,
 }) => {
-  const Sizes = [
-    'xs',
-    'sm',
-    'md',
-    'lg',
-    'xl',
-    'xxl',
-    '3xl',
-    '4xl',
-    '5xl',
-    '6xl',
-  ];
-  const FSLoop = (length: number) => {
-    let array = [];
-    for (let n: number = 0; n < length; n++) {
-      array.push(
-        <Button
-          key={Sizes[n]}
-          height={50}
-          width={50}
-          mobileHeight={50}
-          className={'py-2'}
-        >
-          {Sizes[n]}
-        </Button>
-      );
-    }
-    return array;
-  };
-  const [y, setY] = useState(0);
-  const [hovering, setHovering] = useState(false);
-  const [url, setUrl] = useState(urls[0]);
+  const [cartClick, setCartClick] = useState<boolean>(false);
+  const [uri, setUri] = useState(urls[0]);
+  const auth = useAuth();
+  const router = useRouter();
+  const HandleCart = () => {
+    if (auth.user) {
+      setCartClick(true)
+      setTimeout(() => {
+      createCart({
+        author,
+        name:title,
+      price,
+      uid: auth.user?.uid,
+      pageUrl: router.pathname,
+      url: uri,
+      createdAt: new Date().toISOString(),
+    })
+  }, 700)
+}
+else {
+return router.push('/login')
+}
+  }
   return (
+    <>
     <div className='h-full w-full lg:pl-5 lg:pt-3 flex pt-1 flex-col'>
       <h5 className='hidden pl-5 lg:pl-0 font-[Poppins] space-x-2 h-[20px] items-center lg:flex lg:mb-[0.655rem] '>
         <span className='text-midnight'>Element 1 </span> <span>{'>'}</span>
@@ -91,7 +91,7 @@ const ViewCard: FC<Props> = ({
           {urls.map((url) => (
             <div
               key={url}
-              className='relative border border-midnight w-[100%] h-[9rem] flex p-2 items-center'
+              className='relative border border-midnight w-[8rem] h-[9rem] flex p-2 items-center'
             >
               <Image
                 layout='fill'
@@ -100,37 +100,32 @@ const ViewCard: FC<Props> = ({
                 style={{ cursor: 'pointer' }}
                 alt='Preview'
                 onClick={() => {
-                  setUrl(url);
+                  setUri(url);
                 }}
               />
             </div>
           ))}
         </div>
         <div className='hidden lg:block'>
+           <Swiper
+            modules={[Pagination, Keyboard, Mousewheel]}
+            effect='slide'
+            pagination={{ clickable: true }}
+            keyboard
+            mousewheel
+          >
+        <SwiperSlide>
           <Image
-            width={300}
+            width={480}
             height={481}
             objectFit='cover'
-            src={url}
+            src={uri}
             alt='Preview'
+            quality={100}
+            priority={true}
             className='cursor-crosshair'
-            onMouseEnter={() => {
-              setHovering(true);
-            }}
-            onMouseLeave={() => {
-              setTimeout(() => {
-                setHovering(false);
-              }, 100);
-            }}
-            onMouseMove={(e) => {
-              const { y } = getRelativePos(
-                e.clientX,
-                e.clientY,
-                e.currentTarget
-              );
-              setY(y);
-            }}
-          />
+            />
+            </SwiperSlide></Swiper>
         </div>
         <div className='relative w-screen h-[70vh] block lg:hidden'>
           <Swiper
@@ -148,16 +143,15 @@ const ViewCard: FC<Props> = ({
                   objectFit='cover'
                   src={url}
                   alt='Preview'
-                  className='cursor-grab'
+                  className='cursor-pointer'
                 />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        <div className='h-full lg:w-[60%] px-5 lg:px-0 w-full'>
+        <div className='h-full px-5 lg:px-0 w-[46%]'>
           <div
             className='h-full w-full space-y-6'
-            style={{ display: hovering ? 'none' : 'block' }}
           >
             <div className='space-y-2'>
               <div className="flex justify-between pr-[3%]">             
@@ -208,7 +202,17 @@ const ViewCard: FC<Props> = ({
                 className='grid h-full gap-3 mt-5 self-center lg:justify-start'
                 aria-label='Size grid'
               >
-                {FSLoop(size > 10 ? 10 : size)}
+                {size.map((sze:any) => (
+                     <Button
+                     key={sze.name}
+                     height={50}
+                     width={50}
+                     mobileHeight={50}
+                     className={'py-2'}
+                   >
+                     {sze.name}
+                   </Button>
+                ))}
               </GridDiv><div className='my-5 lg:hidden flex justify-center gap-2'>
               <Button
               mobileWidth={170}
@@ -219,6 +223,7 @@ const ViewCard: FC<Props> = ({
               on={false}
               height={49}
               fontWeight={500}
+              onClick={HandleCart}
             >
               Add to cart
             </Button>
@@ -269,6 +274,7 @@ const ViewCard: FC<Props> = ({
               on={false}
               height={49}
               fontWeight={500}
+              onClick={HandleCart}
             >
               Add to cart
             </Button>
@@ -286,21 +292,11 @@ const ViewCard: FC<Props> = ({
             </Button>
           </div>
           </div>
-          <div
-            className='relative h-[30rem] w-[57vw] lg:block hidden'
-            style={{ display: hovering ? 'block' : 'none' }}
-          >
-            <Image
-              layout='fill'
-              objectPosition={`0 ${y / 4.8}% `}
-              objectFit='cover'
-              src={url}
-              alt=''
-            />
-          </div>
-        </div>{' '}
+        </div>
       </div>
     </div>
+    <ToastFunction open={cartClick} onOpenChange={setCartClick} duration={700} title={auth.user ? `Added ${title} To Cart` : 'Authorization Error'} description={auth.user ? `Added ${title} by ${author} To Your Cart` : 'Please sign in to continue'}/>
+    </>
   );
 };
 

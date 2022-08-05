@@ -15,18 +15,25 @@ export interface Props {
   className?: string;
   rounded?: number | string;
   hover?: boolean;
+  type?: 'button' | 'reset' | 'submit' | undefined;
+  enter?: boolean;
+  enterFunction?: any;
+  id?: string;
+  name?: string;
+  onTimeClick?: boolean;
+disabled?: boolean;
 }
 
-const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize, rounded, hover=true}) => {
+const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onClick , font, fontWeight, mobileWidth, mobileHeight, fontSize, className, mobileFontWeight, mobileFontSize, rounded, hover=true, type, enter, id, name, disabled}) => {
   const ButtonCM = styled('button', {
     transition: 'all 400ms cubic-bezier(.73,.08,.53,.81)',
       backgroundColor: on ? '#171717' : '#fcfdfc',
-      color: on ? '#fcfdfc' : '171717',
+      color: on ? '#fcfdfc' : '#171717',
     fontFamily: font ? font : 'Poppins',
     fontWeight: fontWeight ? fontWeight : '500',
     '&:hover':  {
       backgroundColor: hover && on ? '#fcfdfc' : `${!hover ? '' : '#171717'}`,
-      color: hover && on ? '#171717' : `${!hover ? '' : '#fcfdfc' }`,
+      color: hover && on ? '#171717' : `${!hover ? '' : '#fcfdfc'}`,
     },
     borderRadius: rounded ? rounded : 0,
     width: width ? width : 60,
@@ -42,9 +49,17 @@ const Button: FC<PropsWithChildren<Props>> = ({ width, height, children, on, onC
   });
   return (
       <ButtonCM
-        type='submit'
+        type={type ? type : 'button'}
         onClick={onClick}
-        className={`tracking-widest uppercase border border-midnight shadow-lg rounded-sm ${className}`}
+        className={`tracking-widest uppercase border border-midnight shadow-lg rounded-sm grid place-content-center ${className}`}
+        onKeyDown={(e)=> {
+          if ( enter && e.key === 'Enter') {
+            
+          }
+        }}
+        disabled={disabled}
+        id={id ? id : '#id'}
+        name={name ? name : 'name'}
       >
         {children}
       </ButtonCM>

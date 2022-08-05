@@ -96,8 +96,8 @@ const Card: FC<Props> = ({
         <Image
         layout="responsive"
           height={19}
+          priority={true}
           width={12}
-          quality={100}
           objectFit='cover'
           className={`hover:scale-105`}
           style={{
