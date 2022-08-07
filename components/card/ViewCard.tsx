@@ -8,10 +8,11 @@ import { ColorSwatchIcon as Color, HeartIcon } from '@heroicons/react/solid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import Image from 'next/image';
 import axios from 'axios';
 import useSWR from 'swr'
-import { Pagination, Keyboard, Mousewheel } from 'swiper';
+import { Pagination, Keyboard, Mousewheel, Navigation } from 'swiper';
 import ToastFunction from '@components/toast';
 import { useAuth } from '@lib/Auth';
 import { useRouter } from 'next/router';
@@ -81,51 +82,34 @@ return router.push('/login')
   return (
     <>
     <div className='h-full w-full lg:pl-5 lg:pt-3 flex pt-1 flex-col'>
-      <h5 className='hidden pl-5 lg:pl-0 font-[Poppins] space-x-2 h-[20px] items-center lg:flex lg:mb-[0.655rem] '>
-        <span className='text-midnight'>Element 1 </span> <span>{'>'}</span>
+      {/* <h5 className='hidden pl-5 lg:pl-0 font-[Poppins] space-x-2 h-[20px] items-center lg:flex lg:mb-[0.655rem] '>
         <span className='text-gray-800'>Element 2 </span> <span> {'>'}</span>
-        <span className='text-gray-700'>Element 3</span>
-      </h5>
-      <div className='w-full h-full flex flex-col lg:flex-row lg:space-x-10 gap-7'>
-        <div className='hidden w-[7%] lg:flex h-full space-y-6 flex-col'>
-          {urls.map((url) => (
-            <div
-              key={url}
-              className='relative border border-midnight w-[8rem] h-[9rem] flex p-2 items-center'
-            >
-              <Image
-                layout='fill'
-                objectFit='cover'
-                src={url}
-                style={{ cursor: 'pointer' }}
-                alt='Preview'
-                onClick={() => {
-                  setUri(url);
-                }}
-              />
-            </div>
-          ))}
-        </div>
-        <div className='hidden lg:block'>
-           <Swiper
-            modules={[Pagination, Keyboard, Mousewheel]}
+        <span className='text-gray-700'>{title}</span>
+      </h5> */}
+      <div className='w-full h-full flex flex-col lg:flex-row lg:space-x-10 gap-7 justify-center'>
+        <div className='hidden lg:block h-[560px] w-[560px]'
+        >
+          <Swiper
+            modules={[Pagination, Keyboard, Mousewheel, Navigation]}
             effect='slide'
             pagination={{ clickable: true }}
             keyboard
             mousewheel
+            navigation
           >
-        <SwiperSlide>
-          <Image
-            width={480}
-            height={481}
+              {urls.map((url) => (
+              <SwiperSlide key={url}>
+            <Image
+            width={540}
+            height={500}
             objectFit='cover'
-            src={uri}
+            src={url}
             alt='Preview'
             quality={100}
             priority={true}
-            className='cursor-crosshair'
             />
-            </SwiperSlide></Swiper>
+              </SwiperSlide>
+            ))}</Swiper>
         </div>
         <div className='relative w-screen h-[70vh] block lg:hidden'>
           <Swiper
@@ -151,7 +135,7 @@ return router.push('/login')
         </div>
         <div className='h-full px-5 lg:px-0 w-[46%]'>
           <div
-            className='h-full w-full space-y-6'
+            className='h-full w-full space-y-8'
           >
             <div className='space-y-2'>
               <div className="flex justify-between pr-[3%]">             

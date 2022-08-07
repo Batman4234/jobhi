@@ -14,6 +14,5 @@ export async function getAllItems() {
     snapshot.forEach((item) => {
         items.push({id: item.id, ...item.data()})
     })
-    console.log(items)
     return items;
 }
